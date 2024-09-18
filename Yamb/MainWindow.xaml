@@ -51,10 +51,31 @@
             </Grid.RowDefinitions>
             <Label Grid.Row="1" Grid.Column="0" Content="1"/>
         </Grid>
+        <Grid Grid.Row="1" Grid.Column="1">
+            <WrapPanel x:Name="DicePanel" Orientation="Horizontal">
+                <Border x:Name="Border1" MouseLeftButtonUp="Dice_Click" BorderBrush="Transparent">
+                <Image x:Name="Dice1" Width="100" Height="100" Margin="10" MouseLeftButtonUp="Dice_Click" />
+                </Border>
+                <Border x:Name="Border2" MouseLeftButtonUp="Dice_Click" BorderBrush="Transparent">
+                    <Image x:Name="Dice2" Width="100" Height="100" Margin="10" MouseLeftButtonUp="Dice_Click"/>
+                </Border>
+                <Border x:Name="Border3" MouseLeftButtonUp="Dice_Click" BorderBrush="Transparent">
+                    <Image x:Name="Dice3" Width="100" Height="100" Margin="10" MouseLeftButtonUp="Dice_Click"/>
+                </Border>
+                <Border x:Name="Border4" MouseLeftButtonUp="Dice_Click" BorderBrush="Transparent">
+                    <Image x:Name="Dice4" Width="100" Height="100" Margin="10" MouseLeftButtonUp="Dice_Click"/>
+                </Border>
+                <Border x:Name="Border5" MouseLeftButtonUp="Dice_Click" BorderBrush="Transparent">
+                    <Image x:Name="Dice5" Width="100" Height="100" Margin="10" MouseLeftButtonUp="Dice_Click"/>
+                </Border>
+                <Border x:Name="Border6" MouseLeftButtonUp="Dice_Click" BorderBrush="Transparent">
+                    <Image x:Name="Dice6" Width="100" Height="100" Margin="10" MouseLeftButtonUp="Dice_Click"/>
+                </Border>
+            </WrapPanel>
+        </Grid>
 
 
 
-
-        <Button Grid.Row="2" Grid.ColumnSpan="2" Width="500" Height="100" Content="ROLL"/>
+        <Button Grid.Row="2" Grid.ColumnSpan="2" Width="500" Height="100" Content="ROLL DICE" Click="RollDice_Click"/>
     </Grid>
 </Window>

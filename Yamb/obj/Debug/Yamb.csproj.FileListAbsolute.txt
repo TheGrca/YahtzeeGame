@@ -1,0 +1,15 @@
+C:\Users\Korisnik\Desktop\Yamb\Yamb\bin\Debug\Yamb.exe.config
+C:\Users\Korisnik\Desktop\Yamb\Yamb\bin\Debug\Yamb.exe
+C:\Users\Korisnik\Desktop\Yamb\Yamb\bin\Debug\Yamb.pdb
+C:\Users\Korisnik\Desktop\Yamb\Yamb\obj\Debug\Yamb.csproj.AssemblyReference.cache
+C:\Users\Korisnik\Desktop\Yamb\Yamb\obj\Debug\MainWindow.g.cs
+C:\Users\Korisnik\Desktop\Yamb\Yamb\obj\Debug\App.g.cs
+C:\Users\Korisnik\Desktop\Yamb\Yamb\obj\Debug\Yamb_MarkupCompile.cache
+C:\Users\Korisnik\Desktop\Yamb\Yamb\obj\Debug\Yamb_MarkupCompile.lref
+C:\Users\Korisnik\Desktop\Yamb\Yamb\obj\Debug\MainWindow.baml
+C:\Users\Korisnik\Desktop\Yamb\Yamb\obj\Debug\Yamb.g.resources
+C:\Users\Korisnik\Desktop\Yamb\Yamb\obj\Debug\Yamb.Properties.Resources.resources
+C:\Users\Korisnik\Desktop\Yamb\Yamb\obj\Debug\Yamb.csproj.GenerateResource.cache
+C:\Users\Korisnik\Desktop\Yamb\Yamb\obj\Debug\Yamb.csproj.CoreCompileInputs.cache
+C:\Users\Korisnik\Desktop\Yamb\Yamb\obj\Debug\Yamb.exe
+C:\Users\Korisnik\Desktop\Yamb\Yamb\obj\Debug\Yamb.pdb
