@@ -49,6 +49,14 @@
                 <RowDefinition/>
                 <RowDefinition/>
             </Grid.RowDefinitions>
+
+            <Button Name="Square1" Click="GridSquare_Click" Grid.Row="1" Grid.Column="1" Content=""/>
+            <Button Name="Square2" Click="GridSquare_Click" Grid.Row="2" Grid.Column="1" Content=""/>
+            <Button Name="Square3" Click="GridSquare_Click" Grid.Row="3" Grid.Column="1" Content=""/>
+            <Button Name="Square4" Click="GridSquare_Click" Grid.Row="4" Grid.Column="1" Content=""/>
+            <Button Name="Square5" Click="GridSquare_Click" Grid.Row="5" Grid.Column="1" Content=""/>
+            <Button Name="Square6" Click="GridSquare_Click" Grid.Row="6" Grid.Column="1" Content=""/>
+
             <Label Grid.Row="1" Grid.Column="0" Content="1"/>
             <Label Grid.Row="2" Grid.Column="0" Content="2"/>
             <Label Grid.Row="3" Grid.Column="0" Content="3"/>
@@ -92,10 +100,11 @@
                     <Image x:Name="Dice6" Width="100" Height="100" Margin="10" MouseLeftButtonUp="Dice_Click"/>
                 </Border>
             </WrapPanel>
+            <Button Height="100" Width="300" VerticalAlignment="Bottom" Content="Announce" IsEnabled="False"/>
         </Grid>
 
 
 
-        <Button Grid.Row="2" Grid.ColumnSpan="2" Width="500" Height="100" Content="ROLL DICE" Click="RollDice_Click"/>
+        <Button x:Name="RollDiceButton" Grid.Row="2" Grid.ColumnSpan="2" Width="500" Height="100" Content="ROLL DICE" Click="RollDice_Click"/>
     </Grid>
 </Window>
