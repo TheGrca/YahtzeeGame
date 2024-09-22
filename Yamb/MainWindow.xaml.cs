@@ -58,6 +58,7 @@ namespace Yamb
                 { 5, false }
         };
         private int firstColumnCounter = 1;
+        private int secondColumnCounter = 1;
 
         public MainWindow()
         {
@@ -253,6 +254,45 @@ namespace Yamb
                 rollCount = 0;
                 Row11.IsEnabled = true;
                 firstColumnCounter = 11;
+            }
+
+            if(rollCount>0 && firstColumnCounter == 11)
+            {
+                if (scoreDictionary[1] > 0 && scoreDictionary[2] > 0 && scoreDictionary[3] > 0 &&
+                    scoreDictionary[4] > 0 && scoreDictionary[5] > 0)
+                    {
+                    Row11.Text = "40";
+                    }
+                else if(scoreDictionary[2] > 0 && scoreDictionary[3] > 0 && scoreDictionary[4] > 0 &&
+                    scoreDictionary[5] > 0 && scoreDictionary[6] > 0)
+                {
+                    Row11.Text = "50";
+                }
+                else
+                {
+                    Row11.Text = "0";
+                }
+                Row11.IsEnabled = false;
+                Row12.IsEnabled = true;
+                rollCount = 0;
+                firstColumnCounter = 12;
+            }
+
+            if(rollCount > 0 && firstColumnCounter == 12)
+            {
+                for(int i = 6; i>0; i--)
+                {
+                    if (scoreDictionary[i] >= 3)
+                    {
+                        Row12.Text = (scoreDictionary[i]*i).ToString();
+                        break;
+                    }
+                    else
+                    {
+                        Row12.Text = "0";
+                    }
+                }
+
             }
 
             ResetDices();
