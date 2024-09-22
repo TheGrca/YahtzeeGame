@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -66,6 +67,12 @@ namespace Yamb
 
         private void RollDice_Click(object sender, RoutedEventArgs e)
         {
+            Border1.IsEnabled = true;
+            Border2.IsEnabled = true;
+            Border3.IsEnabled = true;
+            Border4.IsEnabled = true;
+            Border5.IsEnabled = true;
+            Border6.IsEnabled = true;
             Image[] diceImages = { Dice1, Dice2, Dice3, Dice4, Dice5, Dice6 };
             for(int i = 1; i <= 6; i++)
             {
@@ -98,6 +105,25 @@ namespace Yamb
             if(rollCount >= maxRolls)
             {
                 RollDiceButton.IsEnabled = false;
+                Border1.BorderBrush = Brushes.Gold;
+                Border1.BorderThickness = new Thickness(2);
+                Border1.IsEnabled = false;
+                Border2.BorderBrush = Brushes.Gold;
+                Border2.BorderThickness = new Thickness(2);
+                Border2.IsEnabled = false;
+                Border3.BorderBrush = Brushes.Gold;
+                Border3.BorderThickness = new Thickness(2);
+                Border3.IsEnabled = false;
+                Border4.BorderBrush = Brushes.Gold;
+                Border4.BorderThickness = new Thickness(2);
+                Border4.IsEnabled = false;
+                Border5.BorderBrush = Brushes.Gold;
+                Border5.BorderThickness = new Thickness(2);
+                Border5.IsEnabled = false;
+                Border6.BorderBrush = Brushes.Gold;
+                Border6.BorderThickness = new Thickness(2);
+                Border6.IsEnabled = false;
+
             }
         }
 
@@ -127,30 +153,19 @@ namespace Yamb
 
 
 
-        private void GridSquare_Click(object sender, RoutedEventArgs e)
-        {
-            TextBlock clickedSquare = sender as TextBlock; 
-            int rowIndex = Grid.GetRow(clickedSquare);
-            
-            rollCount = 0;
-            RollDiceButton.IsEnabled = true; // Re-enable the roll button
-        }
-
-
         private void FirstColumnClick(object sender, RoutedEventArgs e)
         {
 
             TextBlock clickedTextBlock = sender as TextBlock;
-            if (rollCount > 0)
+            if (rollCount > 0 && firstColumnCounter < 7)
             {
                 if (clickedTextBlock != null && clickedTextBlock.IsEnabled)
                 {
-                    //TODO : Logic for writing the result here
                     if (scoreDictionary[firstColumnCounter] > 5) // If a user has 6 of the same
                     {
                         scoreDictionary[firstColumnCounter] = 5;
                     }
-                    int score = scoreDictionary[firstColumnCounter]*firstColumnCounter;
+                    int score = scoreDictionary[firstColumnCounter] * firstColumnCounter;
                     firstColumnCounter++;
                     clickedTextBlock.Text = score.ToString();
                     clickedTextBlock.IsEnabled = false;
@@ -167,16 +182,86 @@ namespace Yamb
                             if (nextElement != null)
                             {
                                 nextElement.IsEnabled = true;
-                                MessageBox.Show($"Enabled: {nextElement.Name}");
                             }
                         }
                     }
-
                 }
             }
 
+            if (firstColumnCounter == 7)
+            {
+                int sum = 0;
+                for (int i = 1; i < 7; i++)
+                {
+                    string textBlockName = "Row" + i;
+                    TextBlock textBlock = (TextBlock)this.FindName(textBlockName);
+                    string text = textBlock.Text;
+                    sum += int.Parse(text);
+                }
+
+                if (sum >= 60)
+                    sum += 30;
+
+                Row7.Text = sum.ToString();
+                rollCount = 0;
+                Row8.IsEnabled = true;
+                firstColumnCounter = 8;
+            }
+
+            if (rollCount > 0 && firstColumnCounter == 8)
+            {
+                int maximum = 0;
+                List<int> numbers = new List<int>();
+                for (int i = 0; i < 6; i++)
+                {
+                    numbers.Add(diceValue[i]);
+                }
+
+                int minValue = numbers.Min();
+                numbers.Remove(minValue);
+
+                maximum = numbers.Sum();
+                Row8.Text = maximum.ToString();
+                Row8.IsEnabled = false;
+                Row9.IsEnabled = true;
+                firstColumnCounter = 9;
+                ResetDices();
+            }
+
+            if(rollCount > 0 && firstColumnCounter == 9) {
+                List<int> numbers = new List<int>();
+                for(int i = 0; i < 6; i++)
+                {
+                    numbers.Add(diceValue[i]);
+                }
+                int maxValue = numbers.Max();
+                numbers.Remove(maxValue);
+
+                Row9.Text = numbers.Sum().ToString();
+                Row9.IsEnabled = false;
+                Row10.IsEnabled = true;
+                firstColumnCounter = 10;
+            }
+
+            if (firstColumnCounter == 10)
+            {
+                int ones = int.Parse(Row1.Text);
+                int maximum = int.Parse(Row8.Text);
+                int minimum = int.Parse(Row9.Text);
+
+                Row10.Text = (ones*(maximum-minimum)).ToString();
+                rollCount = 0;
+                Row11.IsEnabled = true;
+                firstColumnCounter = 11;
+            }
+
+            ResetDices();
+        }
+
+        private void ResetDices()
+        {
             //RESET EVERYTHING
-            for(int i = 0; i<6; i++)
+            for (int i = 0; i < 6; i++)
             {
                 diceValue[i] = 0;
                 isDiceClicked[i] = false;
@@ -198,8 +283,6 @@ namespace Yamb
             RollDiceButton.IsEnabled = true;
 
         }
-
-        //MAKE A FUNCTION THAT WILL BE CALLED TO RESET THE DICES AFTER WRITING A SCORE
 
     }
 }
