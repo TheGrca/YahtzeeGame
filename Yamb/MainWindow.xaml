@@ -50,12 +50,13 @@
                 <RowDefinition/>
             </Grid.RowDefinitions>
 
-            <Button Name="Square1" Click="GridSquare_Click" Grid.Row="1" Grid.Column="1" Content=""/>
-            <Button Name="Square2" Click="GridSquare_Click" Grid.Row="2" Grid.Column="1" Content=""/>
-            <Button Name="Square3" Click="GridSquare_Click" Grid.Row="3" Grid.Column="1" Content=""/>
-            <Button Name="Square4" Click="GridSquare_Click" Grid.Row="4" Grid.Column="1" Content=""/>
-            <Button Name="Square5" Click="GridSquare_Click" Grid.Row="5" Grid.Column="1" Content=""/>
-            <Button Name="Square6" Click="GridSquare_Click" Grid.Row="6" Grid.Column="1" Content=""/>
+            <TextBlock x:Name="Column1" Grid.Row="1" Grid.Column="1" MouseLeftButtonDown="FirstColumnClick" IsEnabled="True" HorizontalAlignment="Center" Width="70"/>
+            <TextBlock x:Name="Column2" Grid.Row="2" Grid.Column="1" MouseLeftButtonDown="FirstColumnClick" IsEnabled="False" HorizontalAlignment="Center" Width="70"/>
+            <TextBlock x:Name="Column3" Grid.Row="3" Grid.Column="1" MouseLeftButtonDown="FirstColumnClick" IsEnabled="False" HorizontalAlignment="Center" Width="70"/>
+            <TextBlock x:Name="Column4" Grid.Row="4" Grid.Column="1" MouseLeftButtonDown="FirstColumnClick" IsEnabled="False" HorizontalAlignment="Center" Width="70"/>
+            <TextBlock x:Name="Column5" Grid.Row="5" Grid.Column="1" MouseLeftButtonDown="FirstColumnClick" IsEnabled="False" HorizontalAlignment="Center" Width="70"/>
+            <TextBlock x:Name="Column6" Grid.Row="6" Grid.Column="1" MouseLeftButtonDown="FirstColumnClick" IsEnabled="False" HorizontalAlignment="Center" Width="70"/>
+
 
             <Label Grid.Row="1" Grid.Column="0" Content="1"/>
             <Label Grid.Row="2" Grid.Column="0" Content="2"/>
