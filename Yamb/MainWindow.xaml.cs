@@ -256,7 +256,7 @@ namespace Yamb
                 firstColumnCounter = 11;
             }
 
-            if(rollCount>0 && firstColumnCounter == 11)
+            if(rollCount>0 && firstColumnCounter == 11) //KENTA
             {
                 if (scoreDictionary[1] > 0 && scoreDictionary[2] > 0 && scoreDictionary[3] > 0 &&
                     scoreDictionary[4] > 0 && scoreDictionary[5] > 0)
@@ -278,13 +278,17 @@ namespace Yamb
                 firstColumnCounter = 12;
             }
 
-            if(rollCount > 0 && firstColumnCounter == 12)
+            if(rollCount > 0 && firstColumnCounter == 12) //TRILING
             {
                 for(int i = 6; i>0; i--)
                 {
                     if (scoreDictionary[i] >= 3)
                     {
-                        Row12.Text = (scoreDictionary[i]*i).ToString();
+                        if (scoreDictionary[i] > 3)
+                        {
+                            scoreDictionary[i] = 3;
+                        }
+                        Row12.Text = ((scoreDictionary[i]*i) + 20).ToString();
                         break;
                     }
                     else
@@ -292,9 +296,110 @@ namespace Yamb
                         Row12.Text = "0";
                     }
                 }
-
+                Row12.IsEnabled = false;
+                Row13.IsEnabled = true;
+                rollCount = 0;
+                firstColumnCounter = 13;
+            }
+            if(rollCount > 0 && firstColumnCounter == 13) //FUL
+            {
+                for(int i = 6; i>0; i--)
+                {
+                    if (scoreDictionary[i] >= 3)
+                    {
+                        for(int j = 6; j>0; j--)
+                        {
+                            if(j == i)
+                            {
+                                continue;
+                            }
+                            if (scoreDictionary[j] >= 2)
+                            {
+                                if (scoreDictionary[i] > 3)
+                                {
+                                    scoreDictionary[i] = 3;
+                                }
+                                if (scoreDictionary[j] > 2)
+                                {
+                                    scoreDictionary[j] = 2;
+                                }
+                                int ful = (scoreDictionary[i]*i + scoreDictionary[j]*j) + 30 ;
+                                Row13.Text = ful.ToString();
+                                break;
+                            }
+                        }
+                    }
+                    else
+                    {
+                        Row13.Text = "0";
+                    }
+                }
+                Row13.IsEnabled = false;
+                Row14.IsEnabled = true;
+                rollCount = 0;
+                firstColumnCounter = 14;
             }
 
+            if(rollCount > 0 && firstColumnCounter == 14) //Poker
+            {
+                for(int i = 6; i>0; i--)
+                {
+                    if (scoreDictionary[i] >= 4)
+                    {
+                        if (scoreDictionary[i] > 4)
+                        {
+                            scoreDictionary[i] = 4;
+                        }
+                        Row14.Text = ((scoreDictionary[i] * i)+40).ToString();
+                        break;
+                    }
+                    else
+                    {
+                        Row14.Text = "0";
+                    }
+                }
+                Row14.IsEnabled = false;
+                Row15.IsEnabled = true;
+                rollCount = 0;
+                firstColumnCounter = 15;
+            }
+
+            if (rollCount > 0 && firstColumnCounter == 15) //JAMB
+            {
+                for (int i = 6; i > 0; i--)
+                {
+                    if (scoreDictionary[i] >= 5)
+                    {
+                        if (scoreDictionary[i] > 5)
+                        {
+                            scoreDictionary[i] = 5;
+                        }
+                        Row15.Text = ((scoreDictionary[i] * i)+50).ToString();
+                        break;
+                    }
+                    else
+                    {
+                        Row15.Text = "0";
+                    }
+                }
+                Row15.IsEnabled = false;
+                rollCount = 0;
+                firstColumnCounter = 16;
+            }
+
+            if (firstColumnCounter == 16)
+            {
+                int sum = 0;
+                for (int i = 11; i < 16; i++)
+                {
+                    string textBlockName = "Row" + i;
+                    TextBlock textBlock = (TextBlock)this.FindName(textBlockName);
+                    string text = textBlock.Text;
+                    sum += int.Parse(text);
+                }
+
+                Row16.Text = sum.ToString();
+            }
             ResetDices();
         }
 

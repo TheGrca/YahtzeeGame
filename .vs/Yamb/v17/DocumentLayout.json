@@ -3,11 +3,11 @@
   "WorkspaceRootPath": "C:\\Users\\Korisnik\\Desktop\\Yamb\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{15A424B9-9F9A-41D1-AC10-2AB6E4CE1807}|Yamb\\Yamb.csproj|c:\\users\\korisnik\\desktop\\yamb\\yamb\\mainwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{15A424B9-9F9A-41D1-AC10-2AB6E4CE1807}|Yamb\\Yamb.csproj|C:\\Users\\Korisnik\\Desktop\\Yamb\\yamb\\mainwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{15A424B9-9F9A-41D1-AC10-2AB6E4CE1807}|Yamb\\Yamb.csproj|solutionrelative:yamb\\mainwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{15A424B9-9F9A-41D1-AC10-2AB6E4CE1807}|Yamb\\Yamb.csproj|C:\\Users\\Korisnik\\Desktop\\Yamb\\yamb\\mainwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "AbsoluteMoniker": "D:0:0:{15A424B9-9F9A-41D1-AC10-2AB6E4CE1807}|Yamb\\Yamb.csproj|c:\\users\\korisnik\\desktop\\yamb\\yamb\\mainwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
       "RelativeMoniker": "D:0:0:{15A424B9-9F9A-41D1-AC10-2AB6E4CE1807}|Yamb\\Yamb.csproj|solutionrelative:yamb\\mainwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
     }
   ],
@@ -40,7 +40,7 @@
               "RelativeDocumentMoniker": "Yamb\\MainWindow.xaml.cs",
               "ToolTip": "C:\\Users\\Korisnik\\Desktop\\Yamb\\Yamb\\MainWindow.xaml.cs",
               "RelativeToolTip": "Yamb\\MainWindow.xaml.cs",
-              "ViewState": "AQIAAPMAAAAAAAAAAAAwwAgBAAAVAAAA",
+              "ViewState": "AQIAAEwBAAAAAAAAAAAYwHgBAABBAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-09-18T17:48:03.247Z",
               "EditorCaption": ""
