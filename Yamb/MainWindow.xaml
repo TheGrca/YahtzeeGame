@@ -68,6 +68,28 @@
             <TextBlock x:Name="Row16" Grid.Row="16" Grid.Column="1" MouseLeftButtonDown="FirstColumnClick" IsEnabled="False" HorizontalAlignment="Center" Width="70"/>
 
 
+
+            <TextBlock x:Name="Roww1" Grid.Row="1" Grid.Column="2" MouseLeftButtonDown="SecondColumnClick" IsEnabled="False" HorizontalAlignment="Center" Width="70"/>
+            <TextBlock x:Name="Roww2" Grid.Row="2" Grid.Column="2" MouseLeftButtonDown="SecondColumnClick" IsEnabled="False" HorizontalAlignment="Center" Width="70"/>
+            <TextBlock x:Name="Roww3" Grid.Row="3" Grid.Column="2" MouseLeftButtonDown="SecondColumnClick" IsEnabled="False" HorizontalAlignment="Center" Width="70"/>
+            <TextBlock x:Name="Roww4" Grid.Row="4" Grid.Column="2" MouseLeftButtonDown="SecondColumnClick" IsEnabled="False" HorizontalAlignment="Center" Width="70"/>
+            <TextBlock x:Name="Roww5" Grid.Row="5" Grid.Column="2" MouseLeftButtonDown="SecondColumnClick" IsEnabled="False" HorizontalAlignment="Center" Width="70"/>
+            <TextBlock x:Name="Roww6" Grid.Row="6" Grid.Column="2" MouseLeftButtonDown="SecondColumnClick" IsEnabled="False" HorizontalAlignment="Center" Width="70"/>
+            <TextBlock x:Name="Roww7" Grid.Row="7" Grid.Column="2" MouseLeftButtonDown="SecondColumnClick" IsEnabled="False" HorizontalAlignment="Center" Width="70"/>
+            <TextBlock x:Name="Roww8" Grid.Row="8" Grid.Column="2" MouseLeftButtonDown="SecondColumnClick" IsEnabled="False" HorizontalAlignment="Center" Width="70"/>
+            <TextBlock x:Name="Roww9" Grid.Row="9" Grid.Column="2" MouseLeftButtonDown="SecondColumnClick" IsEnabled="False" HorizontalAlignment="Center" Width="70"/>
+            <TextBlock x:Name="Roww10" Grid.Row="10" Grid.Column="2" MouseLeftButtonDown="SecondColumnClick" IsEnabled="False" HorizontalAlignment="Center" Width="70"/>
+            <TextBlock x:Name="Roww11" Grid.Row="11" Grid.Column="2" MouseLeftButtonDown="SecondColumnClick" IsEnabled="False" HorizontalAlignment="Center" Width="70"/>
+            <TextBlock x:Name="Roww12" Grid.Row="12" Grid.Column="2" MouseLeftButtonDown="SecondColumnClick" IsEnabled="False" HorizontalAlignment="Center" Width="70"/>
+            <TextBlock x:Name="Roww13" Grid.Row="13" Grid.Column="2" MouseLeftButtonDown="SecondColumnClick" IsEnabled="False" HorizontalAlignment="Center" Width="70"/>
+            <TextBlock x:Name="Roww14" Grid.Row="14" Grid.Column="2" MouseLeftButtonDown="SecondColumnClick" IsEnabled="False" HorizontalAlignment="Center" Width="70"/>
+            <TextBlock x:Name="Roww15" Grid.Row="15" Grid.Column="2" MouseLeftButtonDown="SecondColumnClick" IsEnabled="True" HorizontalAlignment="Center" Width="70"/>
+            <TextBlock x:Name="Roww16" Grid.Row="16" Grid.Column="2" MouseLeftButtonDown="SecondColumnClick" IsEnabled="False" HorizontalAlignment="Center" Width="70"/>
+
+
+
+
+
             <Label Grid.Row="1" Grid.Column="0" Content="1"/>
             <Label Grid.Row="2" Grid.Column="0" Content="2"/>
             <Label Grid.Row="3" Grid.Column="0" Content="3"/>
