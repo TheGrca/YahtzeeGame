@@ -103,6 +103,23 @@
             <TextBlock x:Name="Rowww15" Grid.Row="15" Grid.Column="3" MouseLeftButtonDown="ThirdColumnClick" IsEnabled="True" HorizontalAlignment="Center" Width="70"/>
             <TextBlock x:Name="Rowww16" Grid.Row="16" Grid.Column="3" IsEnabled="False" HorizontalAlignment="Center" Width="70"/>
 
+            <TextBlock x:Name="Rowwww1" Grid.Row="1" Grid.Column="4" MouseLeftButtonDown="FourthColumnClick" IsEnabled="True" HorizontalAlignment="Center" Width="70"/>
+            <TextBlock x:Name="Rowwww2" Grid.Row="2" Grid.Column="4" MouseLeftButtonDown="FourthColumnClick" IsEnabled="True" HorizontalAlignment="Center" Width="70"/>
+            <TextBlock x:Name="Rowwww3" Grid.Row="3" Grid.Column="4" MouseLeftButtonDown="FourthColumnClick" IsEnabled="True" HorizontalAlignment="Center" Width="70"/>
+            <TextBlock x:Name="Rowwww4" Grid.Row="4" Grid.Column="4" MouseLeftButtonDown="FourthColumnClick" IsEnabled="True" HorizontalAlignment="Center" Width="70"/>
+            <TextBlock x:Name="Rowwww5" Grid.Row="5" Grid.Column="4" MouseLeftButtonDown="FourthColumnClick" IsEnabled="True" HorizontalAlignment="Center" Width="70"/>
+            <TextBlock x:Name="Rowwww6" Grid.Row="6" Grid.Column="4" MouseLeftButtonDown="FourthColumnClick" IsEnabled="True" HorizontalAlignment="Center" Width="70"/>
+            <TextBlock x:Name="Rowwww7" Grid.Row="7" Grid.Column="4" IsEnabled="False" HorizontalAlignment="Center" Width="70"/>
+            <TextBlock x:Name="Rowwww8" Grid.Row="8" Grid.Column="4" MouseLeftButtonDown="FourthColumnClick" IsEnabled="True" HorizontalAlignment="Center" Width="70"/>
+            <TextBlock x:Name="Rowwww9" Grid.Row="9" Grid.Column="4" MouseLeftButtonDown="FourthColumnClick" IsEnabled="True" HorizontalAlignment="Center" Width="70"/>
+            <TextBlock x:Name="Rowwww10" Grid.Row="10" Grid.Column="4" IsEnabled="False" HorizontalAlignment="Center" Width="70"/>
+            <TextBlock x:Name="Rowwww11" Grid.Row="11" Grid.Column="4" MouseLeftButtonDown="FourthColumnClick" IsEnabled="True" HorizontalAlignment="Center" Width="70"/>
+            <TextBlock x:Name="Rowwww12" Grid.Row="12" Grid.Column="4" MouseLeftButtonDown="FourthColumnClick" IsEnabled="True" HorizontalAlignment="Center" Width="70"/>
+            <TextBlock x:Name="Rowwww13" Grid.Row="13" Grid.Column="4" MouseLeftButtonDown="FourthColumnClick" IsEnabled="True" HorizontalAlignment="Center" Width="70"/>
+            <TextBlock x:Name="Rowwww14" Grid.Row="14" Grid.Column="4" MouseLeftButtonDown="FourthColumnClick" IsEnabled="True" HorizontalAlignment="Center" Width="70"/>
+            <TextBlock x:Name="Rowwww15" Grid.Row="15" Grid.Column="4" MouseLeftButtonDown="FourthColumnClick" IsEnabled="True" HorizontalAlignment="Center" Width="70"/>
+            <TextBlock x:Name="Rowwww16" Grid.Row="16" Grid.Column="4" IsEnabled="False" HorizontalAlignment="Center" Width="70"/>
+
 
 
 
@@ -150,7 +167,7 @@
                     <Image x:Name="Dice6" Width="100" Height="100" Margin="10" MouseLeftButtonUp="Dice_Click"/>
                 </Border>
             </WrapPanel>
-            <Button Height="100" Width="300" VerticalAlignment="Bottom" Content="Announce" IsEnabled="False"/>
+            <Button x:Name="Announce" Height="100" Width="300" VerticalAlignment="Bottom" Content="Announce" IsEnabled="False" Click="Announce_Click"/>
         </Grid>
 
 
