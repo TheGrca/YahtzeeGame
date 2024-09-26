@@ -209,7 +209,7 @@ namespace Yamb
                 firstColumnCounter = 8;
             }
 
-            if (rollCount > 0 && firstColumnCounter == 8)
+            if (rollCount > 0 && firstColumnCounter == 8) //Maximum
             {
                 int maximum = 0;
                 List<int> numbers = new List<int>();
@@ -228,8 +228,8 @@ namespace Yamb
                 firstColumnCounter = 9;
                 ResetDices();
             }
-
-            if(rollCount > 0 && firstColumnCounter == 9) {
+             
+            if(rollCount > 0 && firstColumnCounter == 9) { //MINIMUM
                 List<int> numbers = new List<int>();
                 for(int i = 0; i < 6; i++)
                 {
@@ -244,7 +244,7 @@ namespace Yamb
                 firstColumnCounter = 10;
             }
 
-            if (firstColumnCounter == 10)
+            if (firstColumnCounter == 10) //MINMAX RESULT
             {
                 int ones = int.Parse(Row1.Text);
                 int maximum = int.Parse(Row8.Text);
@@ -404,6 +404,8 @@ namespace Yamb
         }
         #endregion
 
+
+        #region SecondColumn
         private void SecondColumnClick(object sender, RoutedEventArgs e)
         {
             if (rollCount > 0 && secondColumnCounter == 15) //JAMB
@@ -454,7 +456,7 @@ namespace Yamb
                 secondColumnCounter = 13;
             }
 
-            if (rollCount > 0 && secondColumnCounter == 13) //FUL
+            if (rollCount > 0 && secondColumnCounter == 13) //FUL //FIX
             {
                 for (int i = 6; i > 0; i--)
                 {
@@ -559,9 +561,116 @@ namespace Yamb
             }
 
 
+            if (rollCount > 0 && secondColumnCounter == 9)//MINIMUM
+            { 
+                List<int> numbers = new List<int>();
+                for (int i = 0; i < 6; i++)
+                {
+                    numbers.Add(diceValue[i]);
+                }
+                int maxValue = numbers.Max();
+                numbers.Remove(maxValue);
+
+                Roww9.Text = numbers.Sum().ToString();
+                Roww9.IsEnabled = false;
+                Roww8.IsEnabled = true;
+                rollCount = 0;
+                secondColumnCounter = 8;
+            }
+
+
+            if (rollCount > 0 && secondColumnCounter == 8) //Maximum
+            {
+                int maximum = 0;
+                List<int> numbers = new List<int>();
+                for (int i = 0; i < 6; i++)
+                {
+                    numbers.Add(diceValue[i]);
+                }
+
+                int minValue = numbers.Min();
+                numbers.Remove(minValue);
+
+                maximum = numbers.Sum();
+                Roww8.Text = maximum.ToString();
+                Roww8.IsEnabled = false;
+                Roww6.IsEnabled = true;
+                secondColumnCounter = 6;
+            }
+
+            TextBlock clickedTextBlock = sender as TextBlock;
+            if (rollCount > 0 && secondColumnCounter < 7)
+            {
+                if (clickedTextBlock != null && clickedTextBlock.IsEnabled)
+                {
+                    if (scoreDictionary[secondColumnCounter] > 5) // If a user has 6 of the same
+                    {
+                        scoreDictionary[secondColumnCounter] = 5;
+                    }
+                    int score = scoreDictionary[secondColumnCounter] * secondColumnCounter;
+                    secondColumnCounter--;
+                    clickedTextBlock.Text = score.ToString();
+                    clickedTextBlock.IsEnabled = false;
+                    var parent = VisualTreeHelper.GetParent(clickedTextBlock) as Panel;
+
+                    if (parent != null)
+                    {
+                        int clickedIndex = parent.Children.IndexOf(clickedTextBlock);
+
+                        if (clickedIndex >= 0)
+                        {
+                            var previous = parent.Children[clickedIndex - 1] as TextBlock;
+
+                            if (previous != null)
+                            {
+                                previous.IsEnabled = true;
+                            }
+                        }
+                    }
+                }
+            }
+
+            if (secondColumnCounter == 0)
+            {
+                int sum = 0;
+                for (int i = 1; i < 7; i++)
+                {
+                    string textBlockName = "Roww" + i;
+                    TextBlock textBlock = (TextBlock)this.FindName(textBlockName);
+                    string text = textBlock.Text;
+                    sum += int.Parse(text);
+                }
+
+                if (sum >= 60)
+                    sum += 30;
+
+                Roww7.Text = sum.ToString();
+                rollCount = 0;
+                Roww10.IsEnabled = true;
+                secondColumnCounter = 10;
+            }
+
+            if (secondColumnCounter == 10) //MINMAX RESULT
+            {
+                int ones = int.Parse(Roww1.Text);
+                int maximum = int.Parse(Roww8.Text);
+                int minimum = int.Parse(Roww9.Text);
+
+                Roww10.Text = (ones * (maximum - minimum)).ToString();
+                rollCount = 0;
+                Roww10.IsEnabled = false;
+                secondColumnCounter = -1;
+            }
+
+
+
             ResetDices();
         }
+        #endregion
 
+        #region ThirdColumn
+
+        #endregion
         private void ResetDices()
         {
             //RESET EVERYTHING
