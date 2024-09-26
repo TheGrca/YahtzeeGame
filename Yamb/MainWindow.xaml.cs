@@ -669,8 +669,245 @@ namespace Yamb
         #endregion
 
         #region ThirdColumn
+        private void ThirdColumnClick(object sender, RoutedEventArgs e)
+        {
 
+            TextBlock clickedTextBlock = sender as TextBlock;
+
+            string clickedTextBlockName = clickedTextBlock.Name;
+
+            if (rollCount > 0 && (clickedTextBlockName == "Rowww1" || clickedTextBlockName == "Rowww2"
+                || clickedTextBlockName == "Rowww3" || clickedTextBlockName == "Rowww4" || clickedTextBlockName == "Rowww5" || clickedTextBlockName == "Rowww6"))
+            {
+                int textBlockTemp = 0;
+                for (int i = 1; i<=6; i++)
+                {
+                    if(clickedTextBlockName == "Rowww" + i)
+                    {
+                        textBlockTemp = i;
+                        break;
+                    }
+                }
+
+                if (clickedTextBlock != null)
+                {
+                    if (scoreDictionary[textBlockTemp] > 5) // If a user has 6 of the same
+                    {
+                        scoreDictionary[textBlockTemp] = 5;
+                    }
+                    int score = scoreDictionary[textBlockTemp] * textBlockTemp;
+                    clickedTextBlock.Text = score.ToString();
+                    clickedTextBlock.IsEnabled = false;
+                }
+            }
+
+
+
+            if (rollCount > 0 && clickedTextBlockName == "Rowww8") //Maximum
+            {
+                int maximum = 0;
+                List<int> numbers = new List<int>();
+                for (int i = 0; i < 6; i++)
+                {
+                    numbers.Add(diceValue[i]);
+                }
+
+                int minValue = numbers.Min();
+                numbers.Remove(minValue);
+
+                maximum = numbers.Sum();
+                Rowww8.Text = maximum.ToString();
+                Rowww8.IsEnabled = false;
+                rollCount = 0;
+            }
+
+            if (rollCount > 0 && clickedTextBlockName == "Rowww9")//MINIMUM
+            { 
+                List<int> numbers = new List<int>();
+                for (int i = 0; i < 6; i++)
+                {
+                    numbers.Add(diceValue[i]);
+                }
+                int maxValue = numbers.Max();
+                numbers.Remove(maxValue);
+
+                Rowww9.Text = numbers.Sum().ToString();
+                Rowww9.IsEnabled = false;
+                rollCount = 0;
+            }
+
+
+
+            if (rollCount > 0 && clickedTextBlockName == "Rowww11") //KENTA
+            {
+                if (scoreDictionary[2] > 0 && scoreDictionary[3] > 0 && scoreDictionary[4] > 0 &&
+                    scoreDictionary[5] > 0 && scoreDictionary[6] > 0)
+                {
+                    Rowww11.Text = "50";
+                }
+                else if (scoreDictionary[1] > 0 && scoreDictionary[2] > 0 && scoreDictionary[3] > 0 &&
+                        scoreDictionary[4] > 0 && scoreDictionary[5] > 0)
+                {
+                    Rowww11.Text = "40";
+                }
+                else
+                {
+                    Rowww11.Text = "0";
+                }
+                Rowww11.IsEnabled = false;
+                rollCount = 0;
+            }
+
+            if (rollCount > 0 && clickedTextBlockName == "Rowww12") //TRILING
+            {
+                for (int i = 6; i > 0; i--)
+                {
+                    if (scoreDictionary[i] >= 3)
+                    {
+                        if (scoreDictionary[i] > 3)
+                        {
+                            scoreDictionary[i] = 3;
+                        }
+                        Rowww12.Text = ((scoreDictionary[i] * i) + 20).ToString();
+                        break;
+                    }
+                    else
+                    {
+                        Row12.Text = "0";
+                    }
+                }
+                Rowww12.IsEnabled = false;
+                rollCount = 0;
+            }
+            if (rollCount > 0 && clickedTextBlockName == "Rowww13") //FUL
+            {
+                for (int i = 6; i > 0; i--)
+                {
+                    if (scoreDictionary[i] >= 3)
+                    {
+                        for (int j = 6; j > 0; j--)
+                        {
+                            if (j == i)
+                            {
+                                continue;
+                            }
+                            if (scoreDictionary[j] >= 2)
+                            {
+                                if (scoreDictionary[i] > 3)
+                                {
+                                    scoreDictionary[i] = 3;
+                                }
+                                if (scoreDictionary[j] > 2)
+                                {
+                                    scoreDictionary[j] = 2;
+                                }
+                                int ful = (scoreDictionary[i] * i + scoreDictionary[j] * j) + 30;
+                                Rowww13.Text = ful.ToString();
+                                break;
+                            }
+                        }
+                    }
+                    else
+                    {
+                        Rowww13.Text = "0";
+                    }
+                }
+                Rowww13.IsEnabled = false;
+                rollCount = 0;
+            }
+
+            if (rollCount > 0 && clickedTextBlockName == "Rowww14") //Poker
+            {
+                for (int i = 6; i > 0; i--)
+                {
+                    if (scoreDictionary[i] >= 4)
+                    {
+                        if (scoreDictionary[i] > 4)
+                        {
+                            scoreDictionary[i] = 4;
+                        }
+                        Rowww14.Text = ((scoreDictionary[i] * i) + 40).ToString();
+                        break;
+                    }
+                    else
+                    {
+                        Rowww14.Text = "0";
+                    }
+                }
+                Rowww14.IsEnabled = false;
+                rollCount = 0;
+            }
+
+            if (rollCount > 0 && clickedTextBlockName == "Rowww15") //JAMB
+            {
+                for (int i = 6; i > 0; i--)
+                {
+                    if (scoreDictionary[i] >= 5)
+                    {
+                        if (scoreDictionary[i] > 5)
+                        {
+                            scoreDictionary[i] = 5;
+                        }
+                        Rowww15.Text = ((scoreDictionary[i] * i) + 50).ToString();
+                        break;
+                    }
+                    else
+                    {
+                        Rowww15.Text = "0";
+                    }
+                }
+                Rowww15.IsEnabled = false;
+                rollCount = 0;
+            }
+
+            if (Rowww15.Text != "" && Rowww14.Text != "" && Rowww13.Text != "" && Rowww12.Text != ""  && Rowww11.Text != "")
+            {
+                int sum = 0;
+                for (int i = 11; i < 16; i++)
+                {
+                    string textBlockName = "Rowww" + i;
+                    TextBlock textBlock = (TextBlock)this.FindName(textBlockName);
+                    string text = textBlock.Text;
+                    sum += int.Parse(text);
+                }
+
+                Rowww16.Text = sum.ToString();
+            }
+
+            if (Rowww1.Text != "" && Rowww8.Text != "" && Rowww9.Text != "") //MINMAX RESULT
+            {
+                int ones = int.Parse(Rowww1.Text);
+                int maximum = int.Parse(Rowww8.Text);
+                int minimum = int.Parse(Rowww9.Text);
+
+                Rowww10.Text = (ones * (maximum - minimum)).ToString();
+                rollCount = 0;
+            }
+
+            if (Rowww1.Text != "" && Rowww2.Text != "" && Rowww3.Text != ""
+                && Rowww4.Text != "" && Rowww5.Text != "" && Rowww6.Text != "") //Sum first 6
+            {
+                int sum = 0;
+                for (int i = 1; i < 7; i++)
+                {
+                    string textBlockName = "Rowww" + i;
+                    TextBlock textBlock = (TextBlock)this.FindName(textBlockName);
+                    string text = textBlock.Text;
+                    sum += int.Parse(text);
+                }
+
+                if (sum >= 60)
+                    sum += 30;
+
+                Rowww7.Text = sum.ToString();
+                rollCount = 0;
+            }
+
+
+            ResetDices();
+        }
         #endregion
+
         private void ResetDices()
         {
             //RESET EVERYTHING
