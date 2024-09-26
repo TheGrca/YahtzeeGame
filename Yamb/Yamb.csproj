@@ -94,7 +94,17 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Resource Include="Images\logo.png" />
+    <Resource Include="Images\arr.png" />
+    <Content Include="Images\dice-five-solid.svg" />
+    <Content Include="Images\dice-four-solid.svg" />
+    <Content Include="Images\dice-one-solid.svg" />
+    <Content Include="Images\dice-six-solid.svg" />
+    <Content Include="Images\dice-three-solid.svg" />
+    <Content Include="Images\dice-two-solid.svg" />
+    <Resource Include="Images\sum.png" />
+  </ItemGroup>
   <ItemGroup>
     <Resource Include="Images\1.png" />
     <Resource Include="Images\2.png" />

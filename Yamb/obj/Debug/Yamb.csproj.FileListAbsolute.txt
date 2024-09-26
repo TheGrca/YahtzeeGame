@@ -13,3 +13,4 @@ C:\Users\Korisnik\Desktop\Yamb\Yamb\obj\Debug\Yamb.csproj.GenerateResource.cache
 C:\Users\Korisnik\Desktop\Yamb\Yamb\obj\Debug\Yamb.csproj.CoreCompileInputs.cache
 C:\Users\Korisnik\Desktop\Yamb\Yamb\obj\Debug\Yamb.exe
 C:\Users\Korisnik\Desktop\Yamb\Yamb\obj\Debug\Yamb.pdb
+C:\Users\Korisnik\Desktop\Yamb\Yamb\obj\Debug\Yamb_Content.g.cs

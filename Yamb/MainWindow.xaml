@@ -4,31 +4,87 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Yamb"
+        xmlns:fa5="http://schemas.fontawesome.com/icons/"
         mc:Ignorable="d"
-        Title="Yamb" Height="1000" Width="900">
+        Background="#E2F1FC"
+        Title="Yahtzee" Height="1000" Width="900"
+         Icon="Images/logo.png" ResizeMode="NoResize">
+
+    <Window.Resources>
+        <!-- Reusable Button Style -->
+        <Style TargetType="Button" x:Key="CoolButtonStyle">
+            <Setter Property="Background" Value="#B6DAF8"/>
+            <Setter Property="Foreground" Value="Black"/>
+            <Setter Property="FontWeight" Value="SemiBold"/>
+            <Setter Property="FontSize" Value="16"/>
+            <Setter Property="BorderThickness" Value="0"/>
+            <Setter Property="Cursor" Value="Hand"/>
+            <Setter Property="Width" Value="150"/>
+            <Setter Property="Height" Value="50"/>
+            <Setter Property="HorizontalAlignment" Value="Center"/>
+            <Setter Property="VerticalAlignment" Value="Center"/>
+            <Setter Property ="FontFamily" Value="Segoe UI"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Border Background="{TemplateBinding Background}" 
+                                CornerRadius="10">
+                            <ContentPresenter HorizontalAlignment="Center"
+                                              VerticalAlignment="Center"/>
+                        </Border>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+
+            <!-- Animation on Mouse Over -->
+            <Style.Triggers>
+                <Trigger Property="IsMouseOver" Value="True">
+                    <Trigger.EnterActions>
+                        <BeginStoryboard>
+                            <Storyboard>
+                                <ColorAnimation Storyboard.TargetProperty="(Button.Background).(SolidColorBrush.Color)"
+                                                To="#A2CFF2"
+                                                Duration="0:0:0.3"/>
+                            </Storyboard>
+                        </BeginStoryboard>
+                    </Trigger.EnterActions>
+                    <Trigger.ExitActions>
+                        <BeginStoryboard>
+                            <Storyboard>
+                                <ColorAnimation Storyboard.TargetProperty="(Button.Background).(SolidColorBrush.Color)"
+                                                To="#B6DAF8"
+                                                Duration="0:0:0.3"/>
+                            </Storyboard>
+                        </BeginStoryboard>
+                    </Trigger.ExitActions>
+                </Trigger>
+            </Style.Triggers>
+        </Style>
+    </Window.Resources>
+
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="1.5*"/>
             <ColumnDefinition/>
         </Grid.ColumnDefinitions>
-            
+
         <Grid.RowDefinitions>
             <RowDefinition/>
             <RowDefinition Height="6*"/>
             <RowDefinition/>
         </Grid.RowDefinitions>
 
-        <TextBlock Text="YAMB" Grid.ColumnSpan="2" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="50"/>
+        <TextBlock Text="YAHTZEE" Grid.ColumnSpan="2" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="50" FontFamily="Segoe UI" FontWeight="SemiBold"/>
 
 
-        <Grid Grid.Row="1" Margin="10" ShowGridLines="True" >
+        <Grid Grid.Row="1" Margin="10"  >
             <Grid.ColumnDefinitions>
                 <ColumnDefinition/>
                 <ColumnDefinition/>
                 <ColumnDefinition/>
                 <ColumnDefinition/>
                 <ColumnDefinition/>
-                <ColumnDefinition/>
+                <ColumnDefinition Width="86.667"/>
             </Grid.ColumnDefinitions>
             <Grid.RowDefinitions>
                 <RowDefinition/>
@@ -49,23 +105,119 @@
                 <RowDefinition/>
                 <RowDefinition/>
             </Grid.RowDefinitions>
+            <Border Grid.Row="0" Grid.Column="0" BorderBrush="Black" BorderThickness="1" Background="#3FA2F6"/>
+            <Border Grid.Row="0" Grid.Column="1" BorderBrush="Black" BorderThickness="1" Background="#3FA2F6"/>
+            <Border Grid.Row="0" Grid.Column="2" BorderBrush="Black" BorderThickness="1" Background="#3FA2F6"/>
+            <Border Grid.Row="0" Grid.Column="3" BorderBrush="Black" BorderThickness="1" Background="#3FA2F6"/>
+            <Border Grid.Row="0" Grid.Column="4" BorderBrush="Black" BorderThickness="1" Background="#3FA2F6"/>
+            <Border Grid.Row="0" Grid.Column="5" BorderBrush="Black" BorderThickness="1" Background="#3FA2F6"/>
+            <!-- Continue for other cells -->
+            <!-- Example filling in another cell -->
+            <Border Grid.Row="1" Grid.Column="0" BorderBrush="Black" BorderThickness="1" Background="#3FA2F6"/>
+            <Border Grid.Row="2" Grid.Column="0" BorderBrush="Black" BorderThickness="1" Background="#3FA2F6"/>
+            <Border Grid.Row="3" Grid.Column="0" BorderBrush="Black" BorderThickness="1" Background="#3FA2F6"/>
+            <Border Grid.Row="4" Grid.Column="0" BorderBrush="Black" BorderThickness="1" Background="#3FA2F6"/>
+            <Border Grid.Row="5" Grid.Column="0" BorderBrush="Black" BorderThickness="1" Background="#3FA2F6"/>
+            <Border Grid.Row="6" Grid.Column="0" BorderBrush="Black" BorderThickness="1" Background="#3FA2F6"/>
+            <Border Grid.Row="7" Grid.Column="0" BorderBrush="Black" BorderThickness="2" Background="#3FA2F6"/>
+            <Border Grid.Row="7" Grid.Column="1" BorderBrush="Black" BorderThickness="2" Background="#3FA2F6"/>
+            <Border Grid.Row="7" Grid.Column="2" BorderBrush="Black" BorderThickness="2" Background="#3FA2F6"/>
+            <Border Grid.Row="7" Grid.Column="3" BorderBrush="Black" BorderThickness="2" Background="#3FA2F6"/>
+            <Border Grid.Row="7" Grid.Column="4" BorderBrush="Black" BorderThickness="2" Background="#3FA2F6"/>
+            <Border Grid.Row="7" Grid.Column="5" BorderBrush="Black" BorderThickness="2" Background="#3FA2F6"/>
+            <Border Grid.Row="8" Grid.Column="0" BorderBrush="Black" BorderThickness="1" Background="#3FA2F6"/>
+            <Border Grid.Row="9" Grid.Column="0" BorderBrush="Black" BorderThickness="1" Background="#3FA2F6"/>
+            <Border Grid.Row="10" Grid.Column="0" BorderBrush="Black" BorderThickness="2" Background="#3FA2F6"/>
+            <Border Grid.Row="10" Grid.Column="1" BorderBrush="Black" BorderThickness="2" Background="#3FA2F6"/>
+            <Border Grid.Row="10" Grid.Column="2" BorderBrush="Black" BorderThickness="2" Background="#3FA2F6"/>
+            <Border Grid.Row="10" Grid.Column="3" BorderBrush="Black" BorderThickness="2" Background="#3FA2F6"/>
+            <Border Grid.Row="10" Grid.Column="4" BorderBrush="Black" BorderThickness="2" Background="#3FA2F6"/>
+            <Border Grid.Row="10" Grid.Column="5" BorderBrush="Black" BorderThickness="2" Background="#3FA2F6"/>
+            <Border Grid.Row="11" Grid.Column="0" BorderBrush="Black" BorderThickness="1" Background="#3FA2F6"/>
+            <Border Grid.Row="12" Grid.Column="0" BorderBrush="Black" BorderThickness="1" Background="#3FA2F6"/>
+            <Border Grid.Row="13" Grid.Column="0" BorderBrush="Black" BorderThickness="1" Background="#3FA2F6"/>
+            <Border Grid.Row="14" Grid.Column="0" BorderBrush="Black" BorderThickness="1" Background="#3FA2F6"/>
+            <Border Grid.Row="15" Grid.Column="0" BorderBrush="Black" BorderThickness="1" Background="#3FA2F6"/>
+            <Border Grid.Row="16" Grid.Column="0" BorderBrush="Black" BorderThickness="2" Background="#3FA2F6"/>
 
-            <TextBlock x:Name="Row1" Grid.Row="1" Grid.Column="1" MouseLeftButtonDown="FirstColumnClick" IsEnabled="True" HorizontalAlignment="Center" Width="70"/>
-            <TextBlock x:Name="Row2" Grid.Row="2" Grid.Column="1" MouseLeftButtonDown="FirstColumnClick" IsEnabled="False" HorizontalAlignment="Center" Width="70"/>
-            <TextBlock x:Name="Row3" Grid.Row="3" Grid.Column="1" MouseLeftButtonDown="FirstColumnClick" IsEnabled="False" HorizontalAlignment="Center" Width="70"/>
-            <TextBlock x:Name="Row4" Grid.Row="4" Grid.Column="1" MouseLeftButtonDown="FirstColumnClick" IsEnabled="False" HorizontalAlignment="Center" Width="70"/>
-            <TextBlock x:Name="Row5" Grid.Row="5" Grid.Column="1" MouseLeftButtonDown="FirstColumnClick" IsEnabled="False" HorizontalAlignment="Center" Width="70"/>
-            <TextBlock x:Name="Row6" Grid.Row="6" Grid.Column="1" MouseLeftButtonDown="FirstColumnClick" IsEnabled="False" HorizontalAlignment="Center" Width="70"/>
-            <TextBlock x:Name="Row7" Grid.Row="7" Grid.Column="1" IsEnabled="False" HorizontalAlignment="Center" Width="70"/>
-            <TextBlock x:Name="Row8" Grid.Row="8" Grid.Column="1" MouseLeftButtonDown="FirstColumnClick" IsEnabled="False" HorizontalAlignment="Center" Width="70"/>
-            <TextBlock x:Name="Row9" Grid.Row="9" Grid.Column="1" MouseLeftButtonDown="FirstColumnClick" IsEnabled="False" HorizontalAlignment="Center" Width="70"/>
-            <TextBlock x:Name="Row10" Grid.Row="10" Grid.Column="1" IsEnabled="False" HorizontalAlignment="Center" Width="70"/>
-            <TextBlock x:Name="Row11" Grid.Row="11" Grid.Column="1" MouseLeftButtonDown="FirstColumnClick" IsEnabled="False" HorizontalAlignment="Center" Width="70"/>
-            <TextBlock x:Name="Row12" Grid.Row="12" Grid.Column="1" MouseLeftButtonDown="FirstColumnClick" IsEnabled="False" HorizontalAlignment="Center" Width="70"/>
-            <TextBlock x:Name="Row13" Grid.Row="13" Grid.Column="1" MouseLeftButtonDown="FirstColumnClick" IsEnabled="False" HorizontalAlignment="Center" Width="70"/>
-            <TextBlock x:Name="Row14" Grid.Row="14" Grid.Column="1" MouseLeftButtonDown="FirstColumnClick" IsEnabled="False" HorizontalAlignment="Center" Width="70"/>
-            <TextBlock x:Name="Row15" Grid.Row="15" Grid.Column="1" MouseLeftButtonDown="FirstColumnClick" IsEnabled="False" HorizontalAlignment="Center" Width="70"/>
-            <TextBlock x:Name="Row16" Grid.Row="16" Grid.Column="1" IsEnabled="False" HorizontalAlignment="Center" Width="70"/>
+            <Border Grid.Row="16" Grid.Column="1" BorderBrush="Black" BorderThickness="2" Background="#3FA2F6"/>
+            <Border Grid.Row="16" Grid.Column="2" BorderBrush="Black" BorderThickness="2" Background="#3FA2F6"/>
+            <Border Grid.Row="16" Grid.Column="3" BorderBrush="Black" BorderThickness="2" Background="#3FA2F6"/>
+            <Border Grid.Row="16" Grid.Column="4" BorderBrush="Black" BorderThickness="2" Background="#3FA2F6"/>
+            <Border Grid.Row="16" Grid.Column="5" BorderBrush="Black" BorderThickness="2" Background="#3FA2F6"/>
+
+            <Border Grid.Row="1" Grid.Column="1" BorderBrush="Black" BorderThickness="1" Background="#B6DAF8"/>
+            <Border Grid.Row="2" Grid.Column="1" BorderBrush="Black" BorderThickness="1" Background="#B6DAF8"/>
+            <Border Grid.Row="3" Grid.Column="1" BorderBrush="Black" BorderThickness="1" Background="#B6DAF8"/>
+            <Border Grid.Row="4" Grid.Column="1" BorderBrush="Black" BorderThickness="1" Background="#B6DAF8"/>
+            <Border Grid.Row="5" Grid.Column="1" BorderBrush="Black" BorderThickness="1" Background="#B6DAF8"/>
+            <Border Grid.Row="6" Grid.Column="1" BorderBrush="Black" BorderThickness="1" Background="#B6DAF8"/>
+            <Border Grid.Row="8" Grid.Column="1" BorderBrush="Black" BorderThickness="1" Background="#B6DAF8"/>
+            <Border Grid.Row="9" Grid.Column="1" BorderBrush="Black" BorderThickness="1" Background="#B6DAF8"/>
+            <Border Grid.Row="11" Grid.Column="1" BorderBrush="Black" BorderThickness="1" Background="#B6DAF8"/>
+            <Border Grid.Row="12" Grid.Column="1" BorderBrush="Black" BorderThickness="1" Background="#B6DAF8"/>
+            <Border Grid.Row="13" Grid.Column="1" BorderBrush="Black" BorderThickness="1" Background="#B6DAF8"/>
+            <Border Grid.Row="14" Grid.Column="1" BorderBrush="Black" BorderThickness="1" Background="#B6DAF8"/>
+            <Border Grid.Row="15" Grid.Column="1" BorderBrush="Black" BorderThickness="1" Background="#B6DAF8"/>
+            <Border Grid.Row="1" Grid.Column="2" BorderBrush="Black" BorderThickness="1" Background="#B6DAF8"/>
+            <Border Grid.Row="2" Grid.Column="2" BorderBrush="Black" BorderThickness="1" Background="#B6DAF8"/>
+            <Border Grid.Row="3" Grid.Column="2" BorderBrush="Black" BorderThickness="1" Background="#B6DAF8"/>
+            <Border Grid.Row="4" Grid.Column="2" BorderBrush="Black" BorderThickness="1" Background="#B6DAF8"/>
+            <Border Grid.Row="5" Grid.Column="2" BorderBrush="Black" BorderThickness="1" Background="#B6DAF8"/>
+            <Border Grid.Row="6" Grid.Column="2" BorderBrush="Black" BorderThickness="1" Background="#B6DAF8"/>
+            <Border Grid.Row="8" Grid.Column="2" BorderBrush="Black" BorderThickness="1" Background="#B6DAF8"/>
+            <Border Grid.Row="9" Grid.Column="2" BorderBrush="Black" BorderThickness="1" Background="#B6DAF8"/>
+            <Border Grid.Row="11" Grid.Column="2" BorderBrush="Black" BorderThickness="1" Background="#B6DAF8"/>
+            <Border Grid.Row="12" Grid.Column="2" BorderBrush="Black" BorderThickness="1" Background="#B6DAF8"/>
+            <Border Grid.Row="13" Grid.Column="2" BorderBrush="Black" BorderThickness="1" Background="#B6DAF8"/>
+            <Border Grid.Row="14" Grid.Column="2" BorderBrush="Black" BorderThickness="1" Background="#B6DAF8"/>
+            <Border Grid.Row="15" Grid.Column="2" BorderBrush="Black" BorderThickness="1" Background="#B6DAF8"/>
+            <Border Grid.Row="1" Grid.Column="3" BorderBrush="Black" BorderThickness="1" Background="#B6DAF8"/>
+            <Border Grid.Row="2" Grid.Column="3" BorderBrush="Black" BorderThickness="1" Background="#B6DAF8"/>
+            <Border Grid.Row="3" Grid.Column="3" BorderBrush="Black" BorderThickness="1" Background="#B6DAF8"/>
+            <Border Grid.Row="4" Grid.Column="3" BorderBrush="Black" BorderThickness="1" Background="#B6DAF8"/>
+            <Border Grid.Row="5" Grid.Column="3" BorderBrush="Black" BorderThickness="1" Background="#B6DAF8"/>
+            <Border Grid.Row="6" Grid.Column="3" BorderBrush="Black" BorderThickness="1" Background="#B6DAF8"/>
+            <Border Grid.Row="8" Grid.Column="3" BorderBrush="Black" BorderThickness="1" Background="#B6DAF8"/>
+            <Border Grid.Row="9" Grid.Column="3" BorderBrush="Black" BorderThickness="1" Background="#B6DAF8"/>
+            <Border Grid.Row="11" Grid.Column="3" BorderBrush="Black" BorderThickness="1" Background="#B6DAF8"/>
+            <Border Grid.Row="12" Grid.Column="3" BorderBrush="Black" BorderThickness="1" Background="#B6DAF8"/>
+            <Border Grid.Row="13" Grid.Column="3" BorderBrush="Black" BorderThickness="1" Background="#B6DAF8"/>
+            <Border Grid.Row="14" Grid.Column="3" BorderBrush="Black" BorderThickness="1" Background="#B6DAF8"/>
+            <Border Grid.Row="15" Grid.Column="3" BorderBrush="Black" BorderThickness="1" Background="#B6DAF8"/>
+            <Border Grid.Row="1" Grid.Column="4" BorderBrush="Black" BorderThickness="1" Background="#B6DAF8"/>
+            <Border Grid.Row="2" Grid.Column="4" BorderBrush="Black" BorderThickness="1" Background="#B6DAF8"/>
+            <Border Grid.Row="3" Grid.Column="4" BorderBrush="Black" BorderThickness="1" Background="#B6DAF8"/>
+            <Border Grid.Row="4" Grid.Column="4" BorderBrush="Black" BorderThickness="1" Background="#B6DAF8"/>
+            <Border Grid.Row="5" Grid.Column="4" BorderBrush="Black" BorderThickness="1" Background="#B6DAF8"/>
+            <Border Grid.Row="6" Grid.Column="4" BorderBrush="Black" BorderThickness="1" Background="#B6DAF8"/>
+            <Border Grid.Row="8" Grid.Column="4" BorderBrush="Black" BorderThickness="1" Background="#B6DAF8"/>
+            <Border Grid.Row="9" Grid.Column="4" BorderBrush="Black" BorderThickness="1" Background="#B6DAF8"/>
+            <Border Grid.Row="11" Grid.Column="4" BorderBrush="Black" BorderThickness="1" Background="#B6DAF8"/>
+            <Border Grid.Row="12" Grid.Column="4" BorderBrush="Black" BorderThickness="1" Background="#B6DAF8"/>
+            <Border Grid.Row="13" Grid.Column="4" BorderBrush="Black" BorderThickness="1" Background="#B6DAF8"/>
+            <Border Grid.Row="14" Grid.Column="4" BorderBrush="Black" BorderThickness="1" Background="#B6DAF8"/>
+            <Border Grid.Row="15" Grid.Column="4" BorderBrush="Black" BorderThickness="1" Background="#B6DAF8"/>
+
+
+
+
+            <TextBlock x:Name="Row1" Grid.Row="1" Grid.Column="1" MouseLeftButtonDown="FirstColumnClick" IsEnabled="True" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" FontFamily="Segoe UI" FontSize="30" FontWeight="SemiBold" TextAlignment="Center"/>
+            <TextBlock x:Name="Row2" Grid.Row="2" Grid.Column="1" MouseLeftButtonDown="FirstColumnClick" IsEnabled="False" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" FontFamily="Segoe UI" FontSize="30" FontWeight="SemiBold" TextAlignment="Center"/>
+            <TextBlock x:Name="Row3" Grid.Row="3" Grid.Column="1" MouseLeftButtonDown="FirstColumnClick" IsEnabled="False" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" FontFamily="Segoe UI" FontSize="30" FontWeight="SemiBold" TextAlignment="Center"/>
+            <TextBlock x:Name="Row4" Grid.Row="4" Grid.Column="1" MouseLeftButtonDown="FirstColumnClick" IsEnabled="False" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" FontFamily="Segoe UI" FontSize="30" FontWeight="SemiBold" TextAlignment="Center"/>
+            <TextBlock x:Name="Row5" Grid.Row="5" Grid.Column="1" MouseLeftButtonDown="FirstColumnClick" IsEnabled="False" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" FontFamily="Segoe UI" FontSize="30" FontWeight="SemiBold" TextAlignment="Center"/>
+            <TextBlock x:Name="Row6" Grid.Row="6" Grid.Column="1" MouseLeftButtonDown="FirstColumnClick" IsEnabled="False" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" FontFamily="Segoe UI" FontSize="30" FontWeight="SemiBold" TextAlignment="Center"/>
+            <TextBlock x:Name="Row7" Grid.Row="7" Grid.Column="1" IsEnabled="False" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" FontFamily="Segoe UI" FontSize="30" FontWeight="SemiBold" TextAlignment="Center"/>
+            <TextBlock x:Name="Row8" Grid.Row="8" Grid.Column="1" MouseLeftButtonDown="FirstColumnClick" IsEnabled="False" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" FontFamily="Segoe UI" FontSize="30" FontWeight="SemiBold" TextAlignment="Center"/>
+            <TextBlock x:Name="Row9" Grid.Row="9" Grid.Column="1" MouseLeftButtonDown="FirstColumnClick" IsEnabled="False" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" FontFamily="Segoe UI" FontSize="30" FontWeight="SemiBold" TextAlignment="Center"/>
+            <TextBlock x:Name="Row10" Grid.Row="10" Grid.Column="1" IsEnabled="False" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" FontFamily="Segoe UI" FontSize="30" FontWeight="SemiBold" TextAlignment="Center"/>
+            <TextBlock x:Name="Row11" Grid.Row="11" Grid.Column="1" MouseLeftButtonDown="FirstColumnClick" IsEnabled="False" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" FontFamily="Segoe UI" FontSize="30" FontWeight="SemiBold" TextAlignment="Center"/>
+            <TextBlock x:Name="Row12" Grid.Row="12" Grid.Column="1" MouseLeftButtonDown="FirstColumnClick" IsEnabled="False" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" FontFamily="Segoe UI" FontSize="30" FontWeight="SemiBold" TextAlignment="Center"/>
+            <TextBlock x:Name="Row13" Grid.Row="13" Grid.Column="1" MouseLeftButtonDown="FirstColumnClick" IsEnabled="False" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" FontFamily="Segoe UI" FontSize="30" FontWeight="SemiBold" TextAlignment="Center"/>
+            <TextBlock x:Name="Row14" Grid.Row="14" Grid.Column="1" MouseLeftButtonDown="FirstColumnClick" IsEnabled="False" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" FontFamily="Segoe UI" FontSize="30" FontWeight="SemiBold" TextAlignment="Center"/>
+            <TextBlock x:Name="Row15" Grid.Row="15" Grid.Column="1" MouseLeftButtonDown="FirstColumnClick" IsEnabled="False" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" FontFamily="Segoe UI" FontSize="30" FontWeight="SemiBold" TextAlignment="Center"/>
+            <TextBlock x:Name="Row16" Grid.Row="16" Grid.Column="1" IsEnabled="False" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" FontFamily="Segoe UI" FontSize="30" FontWeight="SemiBold" TextAlignment="Center"/>
 
 
 
@@ -122,34 +274,54 @@
 
 
 
+            <Label Grid.Row="1" Grid.Column="0" Content="ONES" FontFamily="Segoe UI" FontSize="16" FontWeight="SemiBold" VerticalContentAlignment="Center" HorizontalAlignment="Center"/>
+            <Label Grid.Row="2" Grid.Column="0" Content="TWOS" FontFamily="Segoe UI" FontSize="16" FontWeight="SemiBold" VerticalContentAlignment="Center" HorizontalAlignment="Center"/>
+            <Label Grid.Row="3" Grid.Column="0" Content="THREES" FontFamily="Segoe UI" FontSize="16" FontWeight="SemiBold" VerticalContentAlignment="Center" HorizontalAlignment="Center"/>
+            <Label Grid.Row="4" Grid.Column="0" Content="FOURS" FontFamily="Segoe UI" FontSize="16" FontWeight="SemiBold" VerticalContentAlignment="Center" HorizontalAlignment="Center"/>
+            <Label Grid.Row="5" Grid.Column="0" Content="FIVES" FontFamily="Segoe UI" FontSize="16" FontWeight="SemiBold" VerticalContentAlignment="Center" HorizontalAlignment="Center"/>
+            <Label Grid.Row="6" Grid.Column="0" Content="SIXES" FontFamily="Segoe UI" FontSize="16" FontWeight="SemiBold" VerticalContentAlignment="Center" HorizontalAlignment="Center"/>
+            <Image Grid.Row="7" Grid.Column="0" Source="Images/sum.png" Margin="6,5,7,5"/>
+            <Label Grid.Row="8" Grid.Column="0" Content="MAX" FontFamily="Segoe UI" FontSize="16" FontWeight="SemiBold" VerticalContentAlignment="Center" HorizontalAlignment="Center"/>
+            <Label Grid.Row="9" Grid.Column="0" Content="MIN" FontFamily="Segoe UI" FontSize="16" FontWeight="SemiBold" VerticalContentAlignment="Center" HorizontalAlignment="Center"/>
+            <Image Grid.Row="10" Grid.Column="0" Source="Images/sum.png" Margin="6,5,7,5"/>
+            <Label Grid.Row="11" Grid.Column="0" Content="SCALE" FontFamily="Segoe UI" FontSize="16" FontWeight="SemiBold" VerticalContentAlignment="Center" HorizontalAlignment="Center"/>
+            <Label Grid.Row="12" Grid.Column="0" Content="TRILLING" FontFamily="Segoe UI" FontSize="16" FontWeight="SemiBold" VerticalContentAlignment="Center" HorizontalAlignment="Center"/>
+            <Label Grid.Row="13" Grid.Column="0" Content="FULL" FontFamily="Segoe UI" FontSize="16" FontWeight="SemiBold" VerticalContentAlignment="Center" HorizontalAlignment="Center"/>
+            <Label Grid.Row="14" Grid.Column="0" Content="POKER" FontFamily="Segoe UI" FontSize="16" FontWeight="SemiBold" VerticalContentAlignment="Center" HorizontalAlignment="Center"/>
+            <Label Grid.Row="15" Grid.Column="0" Content="YAHTZEE" FontFamily="Segoe UI" FontSize="16" FontWeight="SemiBold" VerticalContentAlignment="Center" HorizontalAlignment="Center"/>
+            <Image Grid.Row="16" Grid.Column="0" Source="Images/sum.png" Margin="6,5,7,5"/>
+
+            <Image Grid.Row="0" Source="Images/arr.png" RenderTransformOrigin="0.5,0.5" Margin="10,7,2,5" Grid.Column="1" >
+                <Image.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform/>
+                        <SkewTransform/>
+                        <RotateTransform Angle="90"/>
+                        <TranslateTransform/>
+                    </TransformGroup>
+                </Image.RenderTransform>
+            </Image>
+            <Image Grid.Row="0" Grid.Column="2" Source="Images/arr.png" RenderTransformOrigin="0.5,0.5" Margin="7,7,5,5">
+                <Image.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform/>
+                        <SkewTransform/>
+                        <RotateTransform Angle="-90"/>
+                        <TranslateTransform/>
+                    </TransformGroup>
+                </Image.RenderTransform>
+            </Image>
+            <Label Grid.Row="0" Grid.Column="3" Content="FREE" FontFamily="Segoe UI" FontSize="16" FontWeight="SemiBold" VerticalContentAlignment="Center" HorizontalAlignment="Center"/>
+            <Label Grid.Row="0" Grid.Column="4" Content="CALL" FontFamily="Segoe UI" FontSize="16" FontWeight="SemiBold" VerticalContentAlignment="Center" HorizontalAlignment="Center"/>
 
 
-            <Label Grid.Row="1" Grid.Column="0" Content="1"/>
-            <Label Grid.Row="2" Grid.Column="0" Content="2"/>
-            <Label Grid.Row="3" Grid.Column="0" Content="3"/>
-            <Label Grid.Row="4" Grid.Column="0" Content="4"/>
-            <Label Grid.Row="5" Grid.Column="0" Content="5"/>
-            <Label Grid.Row="6" Grid.Column="0" Content="6"/>
-            <Label Grid.Row="7" Grid.Column="0" Content="SUMA"/>
-            <Label Grid.Row="8" Grid.Column="0" Content="MAX"/>
-            <Label Grid.Row="9" Grid.Column="0" Content="MIN"/>
-            <Label Grid.Row="10" Grid.Column="0" Content="SUMA"/>
-            <Label Grid.Row="11" Grid.Column="0" Content="KENTA"/>
-            <Label Grid.Row="12" Grid.Column="0" Content="TRILING"/>
-            <Label Grid.Row="13" Grid.Column="0" Content="FUL"/>
-            <Label Grid.Row="14" Grid.Column="0" Content="POKER"/>
-            <Label Grid.Row="15" Grid.Column="0" Content="YAMB"/>
-            <Label Grid.Row="16" Grid.Column="0" Content="SUMA"/>
 
-            <Label Grid.Row="0" Grid.Column="1" Content="DOLE"/>
-            <Label Grid.Row="0" Grid.Column="2" Content="GORE"/>
-            <Label Grid.Row="0" Grid.Column="3" Content="SLOBODNO"/>
-            <Label Grid.Row="0" Grid.Column="4" Content="NAJAVA"/>
+
         </Grid>
         <Grid Grid.Row="1" Grid.Column="1">
             <WrapPanel x:Name="DicePanel" Orientation="Horizontal">
                 <Border x:Name="Border1" MouseLeftButtonUp="Dice_Click" BorderBrush="Transparent">
-                <Image x:Name="Dice1" Width="100" Height="100" Margin="10" MouseLeftButtonUp="Dice_Click" />
+                    <Image x:Name="Dice1" Width="100" Height="100" Margin="10" MouseLeftButtonUp="Dice_Click" />
                 </Border>
                 <Border x:Name="Border2" MouseLeftButtonUp="Dice_Click" BorderBrush="Transparent">
                     <Image x:Name="Dice2" Width="100" Height="100" Margin="10" MouseLeftButtonUp="Dice_Click"/>
@@ -167,11 +339,11 @@
                     <Image x:Name="Dice6" Width="100" Height="100" Margin="10" MouseLeftButtonUp="Dice_Click"/>
                 </Border>
             </WrapPanel>
-            <Button x:Name="Announce" Height="100" Width="300" VerticalAlignment="Bottom" Content="Announce" IsEnabled="False" Click="Announce_Click"/>
+            <Button x:Name="Announce" Height="70" Width="300" VerticalAlignment="Bottom" Content="CALL OUT" IsEnabled="False" Click="Announce_Click" Style="{StaticResource CoolButtonStyle}"/>
         </Grid>
 
 
 
-        <Button x:Name="RollDiceButton" Grid.Row="2" Grid.ColumnSpan="2" Width="500" Height="100" Content="ROLL DICE" Click="RollDice_Click"/>
+        <Button x:Name="RollDiceButton" Grid.Row="2" Grid.ColumnSpan="2" Width="400" Height="90" Content="ROLL DICE" Click="RollDice_Click" Style="{StaticResource CoolButtonStyle}" />
     </Grid>
 </Window>
