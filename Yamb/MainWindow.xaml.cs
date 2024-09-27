@@ -134,6 +134,10 @@ namespace Yamb
             {
                 Announce.IsEnabled = true;
             }
+            else
+            {
+                Announce.IsEnabled = false;
+            }
 
             if(rollCount == 3 && announceClicked)
             {
@@ -164,6 +168,7 @@ namespace Yamb
                     int score = scoreDictionary[textBlockTemp] * textBlockTemp;
                     fourthColumnTextBox.Text = score.ToString();
                     fourthColumnTextBox.IsEnabled = false;
+
             }
 
             if (clickedFourthTextBlockName == "Rowwww8") //Maximum
@@ -278,7 +283,7 @@ namespace Yamb
                             }
                         }
                     }
-                    else
+                    else if (Rowwww13.Text == "")
                     {
                         Rowwww13.Text = "0";
                     }
@@ -345,6 +350,7 @@ namespace Yamb
                 Rowwww16.Text = sum.ToString();
             }
             Announce.IsEnabled = false;
+            announceClicked = false;
             ResetDices();
         }
 
@@ -573,7 +579,7 @@ namespace Yamb
                             }
                         }
                     }
-                    else
+                    else if (Row13.Text == "")
                     {
                         Row13.Text = "0";
                     }
@@ -699,7 +705,7 @@ namespace Yamb
                 secondColumnCounter = 13;
             }
 
-            if (rollCount > 0 && secondColumnCounter == 13) //FUL //FIX
+            if (rollCount > 0 && secondColumnCounter == 13) 
             {
                 for (int i = 6; i > 0; i--)
                 {
@@ -727,7 +733,7 @@ namespace Yamb
                             }
                         }
                     }
-                    else
+                    else if (Roww13.Text == "")
                     {
                         Roww13.Text = "0";
                     }
@@ -1016,7 +1022,7 @@ namespace Yamb
                     }
                     else
                     {
-                        Row12.Text = "0";
+                        Rowww12.Text = "0";
                     }
                 }
                 Rowww12.IsEnabled = false;
@@ -1050,7 +1056,7 @@ namespace Yamb
                             }
                         }
                     }
-                    else
+                    else if (Rowww13.Text == "")
                     {
                         Rowww13.Text = "0";
                     }
@@ -1151,13 +1157,16 @@ namespace Yamb
         }
         #endregion
 
+
+
         #region FourthColumn
         private void FourthColumnClick(object sender, EventArgs e)
         {
             TextBlock clickedTextBlock = sender as TextBlock;
 
-            if(rollCount == 1)
+            if (rollCount == 1)
             {
+
                 clickedFourthTextBlockName = clickedTextBlock.Name;
                 fourthColumnTextBox = clickedTextBlock;
                 //fourthColumnTextBox.IsEnabled = false;
@@ -1325,7 +1334,7 @@ namespace Yamb
                             }
                         }
                     }
-                    else
+                    else if (Rowwww13.Text == "")
                     {
                         Rowwww13.Text = "0";
                     }
@@ -1417,7 +1426,7 @@ namespace Yamb
             Border5.BorderThickness = new Thickness(0);
             Border6.BorderBrush = Brushes.Transparent;
             Border6.BorderThickness = new Thickness(0);
-            //rollCount = 0;
+            rollCount = 0;
             RollDiceButton.IsEnabled = true;
 
         }
