@@ -10,6 +10,7 @@ using System.Windows.Data;
 using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
+using System.Windows.Media.Animation;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
@@ -62,6 +63,10 @@ namespace Yamb
         private bool announceClicked = false;
         private string clickedFourthTextBlockName = "";
         private TextBlock fourthColumnTextBox = new TextBlock();
+        //Variables for callout
+        TextBlock TextBlock1 = new TextBlock();
+        TextBlock TextBlock2 = new TextBlock();
+        TextBlock TextBlock4 = new TextBlock();
 
         public MainWindow()
         {
@@ -133,10 +138,12 @@ namespace Yamb
             if(rollCount == 1)
             {
                 Announce.IsEnabled = true;
+
             }
             else
             {
                 Announce.IsEnabled = false;
+                Announce.Background = new SolidColorBrush(Colors.Gray);
             }
 
             if(rollCount == 3 && announceClicked)
@@ -169,6 +176,25 @@ namespace Yamb
                     fourthColumnTextBox.Text = score.ToString();
                     fourthColumnTextBox.IsEnabled = false;
 
+            }
+
+            if (Rowwww1.Text != "" && Rowwww2.Text != "" && Rowwww3.Text != ""
+            && Rowwww4.Text != "" && Rowwww5.Text != "" && Rowwww6.Text != "") //Sum first 6
+            {
+                int sum = 0;
+                for (int i = 1; i < 7; i++)
+                {
+                    string textBlockName = "Rowwww" + i;
+                    TextBlock textBlock = (TextBlock)this.FindName(textBlockName);
+                    string text = textBlock.Text;
+                    sum += int.Parse(text);
+                }
+
+                if (sum >= 60)
+                    sum += 30;
+
+                Rowwww7.Text = sum.ToString();
+                rollCount = 0;
             }
 
             if (clickedFourthTextBlockName == "Rowwww8") //Maximum
@@ -351,6 +377,27 @@ namespace Yamb
             }
             Announce.IsEnabled = false;
             announceClicked = false;
+            TextBlock1.IsEnabled = true;
+            TextBlock2.IsEnabled = true;
+
+            for (int i = 1; i < 17; i++)
+            {
+                string Block3 = "Rowww" + i;
+                TextBlock TextBlock3 = (TextBlock)this.FindName(Block3);
+                if (TextBlock3.Text == "")
+                {
+                    TextBlock3.IsEnabled = true;
+                }
+            }
+            for (int i = 1; i < 17; i++)
+            {
+                string Block4 = "Rowwww" + i;
+                TextBlock TextBlock4 = (TextBlock)this.FindName(Block4);
+                if (TextBlock4.Text == "")
+                {
+                    TextBlock4.IsEnabled = true;
+                }
+            }
             ResetDices();
         }
 
@@ -381,17 +428,43 @@ namespace Yamb
         {
             RollDiceButton.IsEnabled = false;
             announceClicked = true;
-            /*
+            Announce.Background = new SolidColorBrush(Colors.Gray);
+
             for (int i = 1; i < 17; i++)
             {
-                string textBlockName = "Rowww" + i;
-                TextBlock textBlock = (TextBlock)this.FindName(textBlockName);
-            }*/
-        //False sva polja osim najave
-        //Hajlajtovati sva polja koja se mogu najaviti //Poslije
-        //Nakon klika, tu se samo moze upisati broj automatski nakon 3 bacanja, ili nakon drugog klikom
-        //Nakon upisa oslobadjaju se sva polja
-         }
+                string Block1 = "Row" + i;
+                TextBlock1 = (TextBlock)this.FindName(Block1);
+                if (TextBlock1.IsEnabled)
+                {
+                    TextBlock1.IsEnabled = false;
+                    break;
+                }
+            }
+
+            for(int i = 16; i >= 1; i--)
+            {
+                string Block2 = "Roww" + i;
+                TextBlock2 = (TextBlock)this.FindName(Block2);
+                if (TextBlock2.IsEnabled)
+                {
+                    TextBlock2.IsEnabled = false;
+                    break;
+                }
+            }
+            for(int i = 1; i < 17;i++)
+            {
+                string Block3 = "Rowww" + i;
+                TextBlock TextBlock3 = (TextBlock)this.FindName(Block3);
+                if (TextBlock3.Text == "")
+                {
+                    TextBlock3.IsEnabled = false;
+                }
+            }
+            //False sva polja osim najave
+            //Hajlajtovati sva polja koja se mogu najaviti //Poslije
+            //Nakon klika, tu se samo moze upisati broj automatski nakon 3 bacanja, ili nakon drugog klikom
+            //Nakon upisa oslobadjaju se sva polja
+        }
 
 
 
@@ -437,6 +510,7 @@ namespace Yamb
                         }
                     }
                 }
+                ResetDices();
             }
 
             if (firstColumnCounter == 7)
@@ -457,6 +531,7 @@ namespace Yamb
                 rollCount = 0;
                 Row8.IsEnabled = true;
                 firstColumnCounter = 8;
+                ResetDices();
             }
 
             if (rollCount > 0 && firstColumnCounter == 8) //Maximum
@@ -492,6 +567,7 @@ namespace Yamb
                 Row9.IsEnabled = false;
                 Row10.IsEnabled = true;
                 firstColumnCounter = 10;
+                ResetDices();
             }
 
             if (firstColumnCounter == 10) //MINMAX RESULT
@@ -504,6 +580,7 @@ namespace Yamb
                 rollCount = 0;
                 Row11.IsEnabled = true;
                 firstColumnCounter = 11;
+                ResetDices();
             }
 
             if(rollCount>0 && firstColumnCounter == 11) //KENTA
@@ -526,6 +603,7 @@ namespace Yamb
                 Row12.IsEnabled = true;
                 rollCount = 0;
                 firstColumnCounter = 12;
+                ResetDices();
             }
 
             if(rollCount > 0 && firstColumnCounter == 12) //TRILING
@@ -550,6 +628,7 @@ namespace Yamb
                 Row13.IsEnabled = true;
                 rollCount = 0;
                 firstColumnCounter = 13;
+                ResetDices();
             }
             if(rollCount > 0 && firstColumnCounter == 13) //FUL
             {
@@ -588,6 +667,7 @@ namespace Yamb
                 Row14.IsEnabled = true;
                 rollCount = 0;
                 firstColumnCounter = 14;
+                ResetDices();
             }
 
             if(rollCount > 0 && firstColumnCounter == 14) //Poker
@@ -612,6 +692,7 @@ namespace Yamb
                 Row15.IsEnabled = true;
                 rollCount = 0;
                 firstColumnCounter = 15;
+                ResetDices();
             }
 
             if (rollCount > 0 && firstColumnCounter == 15) //JAMB
@@ -635,6 +716,7 @@ namespace Yamb
                 Row15.IsEnabled = false;
                 rollCount = 0;
                 firstColumnCounter = 16;
+                ResetDices();
             }
 
             if (firstColumnCounter == 16)
@@ -649,8 +731,9 @@ namespace Yamb
                 }
 
                 Row16.Text = sum.ToString();
+                ResetDices();
             }
-            ResetDices();
+            
         }
         #endregion
 
@@ -679,6 +762,7 @@ namespace Yamb
                 Roww14.IsEnabled = true;
                 rollCount = 0;
                 secondColumnCounter = 14;
+                ResetDices();
             }
 
             if (rollCount > 0 && secondColumnCounter == 14) //Poker
@@ -703,6 +787,7 @@ namespace Yamb
                 Roww13.IsEnabled = true;
                 rollCount = 0;
                 secondColumnCounter = 13;
+                ResetDices();
             }
 
             if (rollCount > 0 && secondColumnCounter == 13) 
@@ -742,6 +827,7 @@ namespace Yamb
                 Roww12.IsEnabled = true;
                 rollCount = 0;
                 secondColumnCounter = 12;
+                ResetDices();
             }
 
             if (rollCount > 0 && secondColumnCounter == 12) //TRILING
@@ -766,6 +852,7 @@ namespace Yamb
                 Roww11.IsEnabled = true;
                 rollCount = 0;
                 secondColumnCounter = 11;
+                ResetDices();
             }
 
             if (rollCount > 0 && secondColumnCounter == 11) //KENTA
@@ -788,6 +875,7 @@ namespace Yamb
                 Roww16.IsEnabled = true;
                 rollCount = 0;
                 secondColumnCounter = 16;
+                ResetDices();
             }
 
 
@@ -807,6 +895,7 @@ namespace Yamb
                 Roww9.IsEnabled = true;
                 rollCount = 0;
                 secondColumnCounter = 9;
+                ResetDices();
             }
 
 
@@ -825,6 +914,7 @@ namespace Yamb
                 Roww8.IsEnabled = true;
                 rollCount = 0;
                 secondColumnCounter = 8;
+                ResetDices();
             }
 
 
@@ -845,6 +935,7 @@ namespace Yamb
                 Roww8.IsEnabled = false;
                 Roww6.IsEnabled = true;
                 secondColumnCounter = 6;
+                ResetDices();
             }
 
             TextBlock clickedTextBlock = sender as TextBlock;
@@ -877,6 +968,7 @@ namespace Yamb
                         }
                     }
                 }
+                ResetDices();
             }
 
             if (secondColumnCounter == 0)
@@ -897,6 +989,7 @@ namespace Yamb
                 rollCount = 0;
                 Roww10.IsEnabled = true;
                 secondColumnCounter = 10;
+                ResetDices();
             }
 
             if (secondColumnCounter == 10) //MINMAX RESULT
@@ -909,11 +1002,8 @@ namespace Yamb
                 rollCount = 0;
                 Roww10.IsEnabled = false;
                 secondColumnCounter = -1;
+                ResetDices();
             }
-
-
-
-            ResetDices();
         }
         #endregion
 
@@ -948,6 +1038,7 @@ namespace Yamb
                     clickedTextBlock.Text = score.ToString();
                     clickedTextBlock.IsEnabled = false;
                 }
+                ResetDices();
             }
 
 
@@ -968,6 +1059,7 @@ namespace Yamb
                 Rowww8.Text = maximum.ToString();
                 Rowww8.IsEnabled = false;
                 rollCount = 0;
+                ResetDices();
             }
 
             if (rollCount > 0 && clickedTextBlockName == "Rowww9")//MINIMUM
@@ -983,6 +1075,7 @@ namespace Yamb
                 Rowww9.Text = numbers.Sum().ToString();
                 Rowww9.IsEnabled = false;
                 rollCount = 0;
+                ResetDices();
             }
 
 
@@ -1005,6 +1098,7 @@ namespace Yamb
                 }
                 Rowww11.IsEnabled = false;
                 rollCount = 0;
+                ResetDices();
             }
 
             if (rollCount > 0 && clickedTextBlockName == "Rowww12") //TRILING
@@ -1027,6 +1121,7 @@ namespace Yamb
                 }
                 Rowww12.IsEnabled = false;
                 rollCount = 0;
+                ResetDices();
             }
             if (rollCount > 0 && clickedTextBlockName == "Rowww13") //FUL
             {
@@ -1063,6 +1158,7 @@ namespace Yamb
                 }
                 Rowww13.IsEnabled = false;
                 rollCount = 0;
+                ResetDices();
             }
 
             if (rollCount > 0 && clickedTextBlockName == "Rowww14") //Poker
@@ -1085,6 +1181,7 @@ namespace Yamb
                 }
                 Rowww14.IsEnabled = false;
                 rollCount = 0;
+                ResetDices();
             }
 
             if (rollCount > 0 && clickedTextBlockName == "Rowww15") //JAMB
@@ -1107,6 +1204,7 @@ namespace Yamb
                 }
                 Rowww15.IsEnabled = false;
                 rollCount = 0;
+                ResetDices();
             }
 
             if (Rowww15.Text != "" && Rowww14.Text != "" && Rowww13.Text != "" && Rowww12.Text != ""  && Rowww11.Text != "")
@@ -1121,6 +1219,7 @@ namespace Yamb
                 }
 
                 Rowww16.Text = sum.ToString();
+                ResetDices();
             }
 
             if (Rowww1.Text != "" && Rowww8.Text != "" && Rowww9.Text != "") //MINMAX RESULT
@@ -1131,6 +1230,7 @@ namespace Yamb
 
                 Rowww10.Text = (ones * (maximum - minimum)).ToString();
                 rollCount = 0;
+                ResetDices();
             }
 
             if (Rowww1.Text != "" && Rowww2.Text != "" && Rowww3.Text != ""
@@ -1150,10 +1250,10 @@ namespace Yamb
 
                 Rowww7.Text = sum.ToString();
                 rollCount = 0;
+                ResetDices();
             }
 
 
-            ResetDices();
         }
         #endregion
 
@@ -1172,6 +1272,19 @@ namespace Yamb
                 //fourthColumnTextBox.IsEnabled = false;
                 RollDiceButton.IsEnabled = true;
                 Announce.IsEnabled = false;
+
+                clickedTextBlock.Background = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#a3c4df"));
+                for(int i = 1; i < 17; i++)
+                {
+                    string Block4 = "Rowwww" + i;
+                    TextBlock TextBlock4 = (TextBlock)this.FindName(Block4);
+                    if (fourthColumnTextBox != TextBlock4)
+                    {
+                        TextBlock4.IsEnabled = false;
+                    }
+
+                }
+
                 return;
             }
 
@@ -1401,6 +1514,29 @@ namespace Yamb
                 Rowwww16.Text = sum.ToString();
             }
 
+            TextBlock1.IsEnabled = true;
+            TextBlock2.IsEnabled = true;
+
+            for (int i = 1; i < 17; i++)
+            {
+                string Block3 = "Rowww" + i;
+                TextBlock TextBlock3 = (TextBlock)this.FindName(Block3);
+                if (TextBlock3.Text == "")
+                {
+                    TextBlock3.IsEnabled = true;
+                }
+            }
+
+            for (int i = 1; i < 17; i++)
+            {
+                string Block4 = "Rowwww" + i;
+                TextBlock TextBlock4 = (TextBlock)this.FindName(Block4);
+                if(TextBlock4.Text == "")
+                {
+                    TextBlock4.IsEnabled = true;
+                }
+            }
+            announceClicked = false;
 
             ResetDices();
         }
