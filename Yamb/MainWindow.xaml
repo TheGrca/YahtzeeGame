@@ -110,7 +110,6 @@
             <Border Grid.Row="0" Grid.Column="2" BorderBrush="Black" BorderThickness="1" Background="#3FA2F6"/>
             <Border Grid.Row="0" Grid.Column="3" BorderBrush="Black" BorderThickness="1" Background="#3FA2F6"/>
             <Border Grid.Row="0" Grid.Column="4" BorderBrush="Black" BorderThickness="1" Background="#3FA2F6"/>
-            <Border Grid.Row="0" Grid.Column="5" BorderBrush="Black" BorderThickness="1" Background="#3FA2F6"/>
             <!-- Continue for other cells -->
             <!-- Example filling in another cell -->
             <Border Grid.Row="1" Grid.Column="0" BorderBrush="Black" BorderThickness="1" Background="#3FA2F6"/>
@@ -324,26 +323,28 @@
 
         </Grid>
         <Grid Grid.Row="1" Grid.Column="1">
-            <WrapPanel x:Name="DicePanel" Orientation="Horizontal" Height="400" Margin="50 0 0 85">
-                <Border x:Name="Border1" MouseLeftButtonUp="Dice_Click" BorderBrush="Transparent">
-                    <Image x:Name="Dice1" Width="100" Height="100" Margin="10" MouseLeftButtonUp="Dice_Click" />
+            <WrapPanel x:Name="DicePanel" Orientation="Horizontal" Height="400" Margin="30 0 0 145" >
+                <Border x:Name="Border1" MouseLeftButtonUp="Dice_Click" BorderBrush="Transparent" BorderThickness="3" Margin="10" Padding="3">
+                    <Image x:Name="Dice1" Width="100" Height="100"  MouseLeftButtonUp="Dice_Click" />
                 </Border>
-                <Border x:Name="Border2" MouseLeftButtonUp="Dice_Click" BorderBrush="Transparent">
-                    <Image x:Name="Dice2" Width="100" Height="100" Margin="10" MouseLeftButtonUp="Dice_Click"/>
+                <Border x:Name="Border2" MouseLeftButtonUp="Dice_Click" BorderBrush="Transparent" BorderThickness="3" Margin="10" Padding="3">
+                    <Image x:Name="Dice2" Width="100" Height="100"  MouseLeftButtonUp="Dice_Click"/>
                 </Border>
-                <Border x:Name="Border3" MouseLeftButtonUp="Dice_Click" BorderBrush="Transparent">
-                    <Image x:Name="Dice3" Width="100" Height="100" Margin="10" MouseLeftButtonUp="Dice_Click"/>
+                <Border x:Name="Border3" MouseLeftButtonUp="Dice_Click" BorderBrush="Transparent" BorderThickness="3" Margin="10" Padding="3">
+                    <Image x:Name="Dice3" Width="100" Height="100"  MouseLeftButtonUp="Dice_Click"/>
                 </Border>
-                <Border x:Name="Border4" MouseLeftButtonUp="Dice_Click" BorderBrush="Transparent">
-                    <Image x:Name="Dice4" Width="100" Height="100" Margin="10" MouseLeftButtonUp="Dice_Click"/>
+                <Border x:Name="Border4" MouseLeftButtonUp="Dice_Click" BorderBrush="Transparent" BorderThickness="3" Margin="10" Padding="3">
+                    <Image x:Name="Dice4" Width="100" Height="100" MouseLeftButtonUp="Dice_Click"/>
                 </Border>
-                <Border x:Name="Border5" MouseLeftButtonUp="Dice_Click" BorderBrush="Transparent">
-                    <Image x:Name="Dice5" Width="100" Height="100" Margin="10" MouseLeftButtonUp="Dice_Click"/>
+                <Border x:Name="Border5" MouseLeftButtonUp="Dice_Click" BorderBrush="Transparent" BorderThickness="3" Margin="10" Padding="3">
+                    <Image x:Name="Dice5" Width="100" Height="100"  MouseLeftButtonUp="Dice_Click"/>
                 </Border>
-                <Border x:Name="Border6" MouseLeftButtonUp="Dice_Click" BorderBrush="Transparent">
-                    <Image x:Name="Dice6" Width="100" Height="100" Margin="10" MouseLeftButtonUp="Dice_Click"/>
+                <Border x:Name="Border6" MouseLeftButtonUp="Dice_Click" BorderBrush="Transparent" BorderThickness="3" Margin="10" Padding="3">
+                    <Image x:Name="Dice6" Width="100" Height="100"  MouseLeftButtonUp="Dice_Click"/>
                 </Border>
             </WrapPanel>
+
+            <Label x:Name="announceLabel" Content="Please select a field!" HorizontalAlignment="Center" VerticalAlignment="Bottom" Margin="0 0 0 80" FontFamily="Segoe UI" FontSize="20" FontWeight="SemiBold" Visibility="Hidden"/>
             <Button x:Name="Announce" Height="70" Width="300" VerticalAlignment="Bottom" Content="CALL OUT" IsEnabled="False" Click="Announce_Click" Style="{StaticResource CoolButtonStyle}"/>
         </Grid>
 

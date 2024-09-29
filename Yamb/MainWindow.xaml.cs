@@ -114,23 +114,23 @@ namespace Yamb
             if(rollCount >= maxRolls)
             {
                 RollDiceButton.IsEnabled = false;
-                Border1.BorderBrush = Brushes.Gold;
-                Border1.BorderThickness = new Thickness(2);
+                Border1.BorderBrush = (Brush)new BrushConverter().ConvertFromString("#3FA2F6");
+                Border1.BorderThickness = new Thickness(3);
                 Border1.IsEnabled = false;
-                Border2.BorderBrush = Brushes.Gold;
-                Border2.BorderThickness = new Thickness(2);
+                Border2.BorderBrush = (Brush)new BrushConverter().ConvertFromString("#3FA2F6");
+                Border2.BorderThickness = new Thickness(3);
                 Border2.IsEnabled = false;
-                Border3.BorderBrush = Brushes.Gold;
-                Border3.BorderThickness = new Thickness(2);
+                Border3.BorderBrush = (Brush)new BrushConverter().ConvertFromString("#3FA2F6");
+                Border3.BorderThickness = new Thickness(3);
                 Border3.IsEnabled = false;
-                Border4.BorderBrush = Brushes.Gold;
-                Border4.BorderThickness = new Thickness(2);
+                Border4.BorderBrush = (Brush)new BrushConverter().ConvertFromString("#3FA2F6");
+                Border4.BorderThickness = new Thickness(3);
                 Border4.IsEnabled = false;
-                Border5.BorderBrush = Brushes.Gold;
-                Border5.BorderThickness = new Thickness(2);
+                Border5.BorderBrush = (Brush)new BrushConverter().ConvertFromString("#3FA2F6");
+                Border5.BorderThickness = new Thickness(3);
                 Border5.IsEnabled = false;
-                Border6.BorderBrush = Brushes.Gold;
-                Border6.BorderThickness = new Thickness(2);
+                Border6.BorderBrush = (Brush)new BrushConverter().ConvertFromString("#3FA2F6");
+                Border6.BorderThickness = new Thickness(3);
                 Border6.IsEnabled = false;
 
             }
@@ -138,12 +138,12 @@ namespace Yamb
             if(rollCount == 1)
             {
                 Announce.IsEnabled = true;
-
+                Announce.Background = (Brush)new BrushConverter().ConvertFromString("#B6DAF8");
             }
             else
             {
                 Announce.IsEnabled = false;
-                Announce.Background = new SolidColorBrush(Colors.Gray);
+                Announce.Background = (Brush)new BrushConverter().ConvertFromString("#3FA2F6");
             }
 
             if(rollCount == 3 && announceClicked)
@@ -374,7 +374,7 @@ namespace Yamb
                 rollCount = 0;
             }
 
-            if (Rowwww15.Text != "" && Rowwww14.Text != "" && Rowwww13.Text != "" && Rowwww12.Text != "" && Rowwww11.Text != "" && rollCount == 2)
+            if (Rowwww15.Text != "" && Rowwww14.Text != "" && Rowwww13.Text != "" && Rowwww12.Text != "" && Rowwww11.Text != "")
             {
                 int sum = 0;
                 for (int i = 11; i < 16; i++)
@@ -415,6 +415,8 @@ namespace Yamb
                     TextBlock4.IsEnabled = true;
                 }
             }
+            TextBlock tb = (TextBlock)FindName(clickedFourthTextBlockName);
+            tb.Background = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#B6DAF8"));
             ResetDices();
             if (Sum1.Text != "" && Sum2.Text != "" && Sum3.Text != "")
             {
@@ -432,14 +434,14 @@ namespace Yamb
             {
                 if (clickedBorder.BorderBrush == Brushes.Transparent)
                 {
-                    clickedBorder.BorderBrush = Brushes.Blue;
+                    clickedBorder.BorderBrush = (Brush)new BrushConverter().ConvertFromString("#3FA2F6");
                     clickedBorder.BorderThickness = new Thickness(3);
                     isDiceClicked[borderIndex] = true;
                 }
                 else
                 {
                     clickedBorder.BorderBrush = Brushes.Transparent;
-                    clickedBorder.BorderThickness = new Thickness(0);
+                  //clickedBorder.BorderThickness = new Thickness(0);
                     isDiceClicked[borderIndex] = false;
                 }
             }
@@ -449,7 +451,8 @@ namespace Yamb
         {
             RollDiceButton.IsEnabled = false;
             announceClicked = true;
-            Announce.Background = new SolidColorBrush(Colors.Gray);
+            Announce.Background = Announce.Background = (Brush)new BrushConverter().ConvertFromString("#3FA2F6");
+            announceLabel.Visibility = Visibility.Visible;
 
             for (int i = 1; i < 17; i++)
             {
@@ -481,10 +484,7 @@ namespace Yamb
                     TextBlock3.IsEnabled = false;
                 }
             }
-            //False sva polja osim najave
-            //Hajlajtovati sva polja koja se mogu najaviti //Poslije
-            //Nakon klika, tu se samo moze upisati broj automatski nakon 3 bacanja, ili nakon drugog klikom
-            //Nakon upisa oslobadjaju se sva polja
+            
         }
 
 
@@ -1338,11 +1338,11 @@ namespace Yamb
 
                 clickedFourthTextBlockName = clickedTextBlock.Name;
                 fourthColumnTextBox = clickedTextBlock;
-                //fourthColumnTextBox.IsEnabled = false;
+                announceLabel.Visibility = Visibility.Hidden;
                 RollDiceButton.IsEnabled = true;
                 Announce.IsEnabled = false;
 
-                clickedTextBlock.Background = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#a3c4df"));
+                clickedTextBlock.Background = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#76c1df"));
                 for(int i = 1; i < 17; i++)
                 {
                     string Block4 = "Rowwww" + i;
@@ -1441,7 +1441,7 @@ namespace Yamb
                 Rowwww9.IsEnabled = false;
             }
 
-            if (Rowwww8.Text != "" && Rowwww9.Text != "") //MINMAX RESULT
+            if (Rowwww8.Text != "" && Rowwww9.Text != "" && Rowwww1.Text != "") //MINMAX RESULT
             {
                 int ones = int.Parse(Rowwww1.Text);
                 int maximum = int.Parse(Rowwww8.Text);
@@ -1622,7 +1622,7 @@ namespace Yamb
             }
             announceClicked = false;
 
-
+            clickedTextBlock.Background = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#B6DAF8"));
             ResetDices();
 
             if (Sum1.Text != "" && Sum2.Text != "" && Sum3.Text != "")
