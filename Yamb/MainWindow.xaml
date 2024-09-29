@@ -273,6 +273,11 @@
             <TextBlock x:Name="Rowwww16" Grid.Row="16" Grid.Column="4" IsEnabled="False" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" FontFamily="Segoe UI" FontSize="30" FontWeight="SemiBold" TextAlignment="Center"/>
 
 
+            <TextBlock x:Name="Sum1" Grid.Row="7" Grid.Column="5" IsEnabled="False" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" FontFamily="Segoe UI" FontSize="30" FontWeight="SemiBold" TextAlignment="Center"/>
+            <TextBlock x:Name="Sum2" Grid.Row="10" Grid.Column="5" IsEnabled="False" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" FontFamily="Segoe UI" FontSize="30" FontWeight="SemiBold" TextAlignment="Center"/>
+            <TextBlock x:Name="Sum3" Grid.Row="16" Grid.Column="5" IsEnabled="False" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" FontFamily="Segoe UI" FontSize="30" FontWeight="SemiBold" TextAlignment="Center"/>
+
+
 
             <Label Grid.Row="1" Grid.Column="0" Content="ONES" FontFamily="Segoe UI" FontSize="16" FontWeight="SemiBold" VerticalContentAlignment="Center" HorizontalAlignment="Center"/>
             <Label Grid.Row="2" Grid.Column="0" Content="TWOS" FontFamily="Segoe UI" FontSize="16" FontWeight="SemiBold" VerticalContentAlignment="Center" HorizontalAlignment="Center"/>

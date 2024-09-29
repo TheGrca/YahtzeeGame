@@ -195,6 +195,13 @@ namespace Yamb
 
                 Rowwww7.Text = sum.ToString();
                 rollCount = 0;
+
+                if (Row7.Text != "" && Roww7.Text != "" && Rowww7.Text != "" && Rowwww7.Text != "")
+                {
+                    int allSum = int.Parse(Row7.Text) + int.Parse(Roww7.Text) + int.Parse(Rowww7.Text) + int.Parse(Rowwww7.Text);
+                    Sum1.Text = allSum.ToString();
+                }
+
             }
 
             if (clickedFourthTextBlockName == "Rowwww8") //Maximum
@@ -238,6 +245,11 @@ namespace Yamb
                 Rowwww10.Text = (ones * (maximum - minimum)).ToString();
                 rollCount = 0;
                 Rowwww10.IsEnabled = false;
+                if (Row10.Text != "" && Roww10.Text != "" && Rowww10.Text != "" && Rowwww10.Text != "")
+                {
+                    int allSum = int.Parse(Row10.Text) + int.Parse(Roww10.Text) + int.Parse(Rowww10.Text) + int.Parse(Rowwww10.Text);
+                    Sum2.Text = allSum.ToString();
+                }
             }
 
             if (clickedFourthTextBlockName == "Rowwww11") //KENTA
@@ -374,6 +386,11 @@ namespace Yamb
                 }
 
                 Rowwww16.Text = sum.ToString();
+                if (Row16.Text != "" && Roww16.Text != "" && Rowww16.Text != "" && Rowwww16.Text != "")
+                {
+                    int allSum = int.Parse(Row16.Text) + int.Parse(Roww16.Text) + int.Parse(Rowww16.Text) + int.Parse(Rowwww16.Text);
+                    Sum3.Text = allSum.ToString();
+                }
             }
             Announce.IsEnabled = false;
             announceClicked = false;
@@ -399,6 +416,10 @@ namespace Yamb
                 }
             }
             ResetDices();
+            if (Sum1.Text != "" && Sum2.Text != "" && Sum3.Text != "")
+            {
+                OnGameEnd(int.Parse(Sum1.Text) + int.Parse(Sum2.Text) + int.Parse(Sum3.Text));
+            }
         }
 
         //Function for clicking the dice to save the result
@@ -531,6 +552,13 @@ namespace Yamb
                 rollCount = 0;
                 Row8.IsEnabled = true;
                 firstColumnCounter = 8;
+
+                if(Row7.Text != "" && Roww7.Text != "" && Rowww7.Text != "" && Rowwww7.Text != "")
+                {
+                    int allSum = int.Parse(Row7.Text) + int.Parse(Roww7.Text) + int.Parse(Rowww7.Text) + int.Parse(Rowwww7.Text);
+                    Sum1.Text = allSum.ToString();
+                }
+
                 ResetDices();
             }
 
@@ -580,6 +608,11 @@ namespace Yamb
                 rollCount = 0;
                 Row11.IsEnabled = true;
                 firstColumnCounter = 11;
+                if (Row10.Text != "" && Roww10.Text != "" && Rowww10.Text != "" && Rowwww10.Text != "")
+                {
+                    int allSum = int.Parse(Row10.Text) + int.Parse(Roww10.Text) + int.Parse(Rowww10.Text) + int.Parse(Rowwww10.Text);
+                    Sum2.Text = allSum.ToString();
+                }
                 ResetDices();
             }
 
@@ -731,9 +764,17 @@ namespace Yamb
                 }
 
                 Row16.Text = sum.ToString();
+                if (Row16.Text != "" && Roww16.Text != "" && Rowww16.Text != "" && Rowwww16.Text != "")
+                {
+                    int allSum = int.Parse(Row16.Text) + int.Parse(Roww16.Text) + int.Parse(Rowww16.Text) + int.Parse(Rowwww16.Text);
+                    Sum3.Text = allSum.ToString();
+                }
                 ResetDices();
             }
-            
+            if (Sum1.Text != "" && Sum2.Text != "" && Sum3.Text != "")
+            {
+                OnGameEnd(int.Parse(Sum1.Text) + int.Parse(Sum2.Text) + int.Parse(Sum3.Text));
+            }
         }
         #endregion
 
@@ -895,6 +936,11 @@ namespace Yamb
                 Roww9.IsEnabled = true;
                 rollCount = 0;
                 secondColumnCounter = 9;
+                if (Row16.Text != "" && Roww16.Text != "" && Rowww16.Text != "" && Rowwww16.Text != "")
+                {
+                    int allSum = int.Parse(Row16.Text) + int.Parse(Roww16.Text) + int.Parse(Rowww16.Text) + int.Parse(Rowwww16.Text);
+                    Sum3.Text = allSum.ToString();
+                }
                 ResetDices();
             }
 
@@ -989,6 +1035,12 @@ namespace Yamb
                 rollCount = 0;
                 Roww10.IsEnabled = true;
                 secondColumnCounter = 10;
+                if (Row7.Text != "" && Roww7.Text != "" && Rowww7.Text != "" && Rowwww7.Text != "")
+                {
+                    int allSum = int.Parse(Row7.Text) + int.Parse(Roww7.Text) + int.Parse(Rowww7.Text) + int.Parse(Rowwww7.Text);
+                    Sum1.Text = allSum.ToString();
+                }
+
                 ResetDices();
             }
 
@@ -1002,7 +1054,16 @@ namespace Yamb
                 rollCount = 0;
                 Roww10.IsEnabled = false;
                 secondColumnCounter = -1;
+                if (Row10.Text != "" && Roww10.Text != "" && Rowww10.Text != "" && Rowwww10.Text != "")
+                {
+                    int allSum = int.Parse(Row10.Text) + int.Parse(Roww10.Text) + int.Parse(Rowww10.Text) + int.Parse(Rowwww10.Text);
+                    Sum2.Text = allSum.ToString();
+                }
                 ResetDices();
+            }
+            if (Sum1.Text != "" && Sum2.Text != "" && Sum3.Text != "")
+            {
+                OnGameEnd(int.Parse(Sum1.Text) + int.Parse(Sum2.Text) + int.Parse(Sum3.Text));
             }
         }
         #endregion
@@ -1250,9 +1311,17 @@ namespace Yamb
 
                 Rowww7.Text = sum.ToString();
                 rollCount = 0;
+                if (Row7.Text != "" && Roww7.Text != "" && Rowww7.Text != "" && Rowwww7.Text != "")
+                {
+                    int allSum = int.Parse(Row7.Text) + int.Parse(Roww7.Text) + int.Parse(Rowww7.Text) + int.Parse(Rowwww7.Text);
+                    Sum1.Text = allSum.ToString();
+                }
                 ResetDices();
             }
-
+            if (Sum1.Text != "" && Sum2.Text != "" && Sum3.Text != "")
+            {
+                OnGameEnd(int.Parse(Sum1.Text) + int.Parse(Sum2.Text) + int.Parse(Sum3.Text));
+            }
 
         }
         #endregion
@@ -1332,6 +1401,11 @@ namespace Yamb
                     sum += 30;
 
                 Rowwww7.Text = sum.ToString();
+                if (Row7.Text != "" && Roww7.Text != "" && Rowww7.Text != "" && Rowwww7.Text != "")
+                {
+                    int allSum = int.Parse(Row7.Text) + int.Parse(Roww7.Text) + int.Parse(Rowww7.Text) + int.Parse(Rowwww7.Text);
+                    Sum1.Text = allSum.ToString();
+                }
                 rollCount = 0;
             }
 
@@ -1376,6 +1450,11 @@ namespace Yamb
                 Rowwww10.Text = (ones * (maximum - minimum)).ToString();
                 rollCount = 0;
                 Rowwww10.IsEnabled = false;
+                if (Row10.Text != "" && Roww10.Text != "" && Rowww10.Text != "" && Rowwww10.Text != "")
+                {
+                    int allSum = int.Parse(Row10.Text) + int.Parse(Roww10.Text) + int.Parse(Rowww10.Text) + int.Parse(Rowwww10.Text);
+                    Sum2.Text = allSum.ToString();
+                }
             }
 
             if (rollCount == 2 && clickedFourthTextBlockName == "Rowwww11") //KENTA
@@ -1512,6 +1591,11 @@ namespace Yamb
                 }
 
                 Rowwww16.Text = sum.ToString();
+                if (Row16.Text != "" && Roww16.Text != "" && Rowww16.Text != "" && Rowwww16.Text != "")
+                {
+                    int allSum = int.Parse(Row16.Text) + int.Parse(Roww16.Text) + int.Parse(Rowww16.Text) + int.Parse(Rowwww16.Text);
+                    Sum3.Text = allSum.ToString();
+                }
             }
 
             TextBlock1.IsEnabled = true;
@@ -1538,7 +1622,13 @@ namespace Yamb
             }
             announceClicked = false;
 
+
             ResetDices();
+
+            if (Sum1.Text != "" && Sum2.Text != "" && Sum3.Text != "")
+            {
+                OnGameEnd(int.Parse(Sum1.Text) + int.Parse(Sum2.Text) + int.Parse(Sum3.Text));
+            }
         }
         #endregion
         private void ResetDices()
@@ -1565,6 +1655,13 @@ namespace Yamb
             rollCount = 0;
             RollDiceButton.IsEnabled = true;
 
+        }
+
+        private void OnGameEnd(int score)
+        {
+            EndPopUp popup = new EndPopUp(score);
+
+            //DO A RESTART
         }
     }
 
