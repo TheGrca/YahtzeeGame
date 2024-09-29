@@ -30,7 +30,6 @@ namespace Yamb
         private Border[] diceBorders;
         private int rollCount = 0;
         private const int maxRolls = 3;
-        private int totalScore = 0; //TotalScore for the Game
         private Dictionary<int, int> scoreDictionary = new Dictionary<int, int> // Dictionary for storing dices (Key is the dice number)
             {
                 { 1, 0 },
@@ -66,7 +65,7 @@ namespace Yamb
         //Variables for callout
         TextBlock TextBlock1 = new TextBlock();
         TextBlock TextBlock2 = new TextBlock();
-        TextBlock TextBlock4 = new TextBlock();
+        bool isEverythingExceptCallBool = false;
 
         public MainWindow()
         {
@@ -76,79 +75,109 @@ namespace Yamb
 
         private void RollDice_Click(object sender, RoutedEventArgs e)
         {
-            Border1.IsEnabled = true;
-            Border2.IsEnabled = true;
-            Border3.IsEnabled = true;
-            Border4.IsEnabled = true;
-            Border5.IsEnabled = true;
-            Border6.IsEnabled = true;
-            Image[] diceImages = { Dice1, Dice2, Dice3, Dice4, Dice5, Dice6 };
-            for(int i = 1; i <= 6; i++)
+            
+
+            if (rollCount == 1 && !announceClicked)
             {
+                int isEverythingExceptCall = 0;
+                
+                for (int i = 1; i < 17; i++)
+                {
+                    string textblock1 = "Row" + i;
+                    string textblock2 = "Roww" + i;
+                    string textblock3 = "Rowww" + i;
+                    TextBlock TB1 = (TextBlock)this.FindName(textblock1);
+                    TextBlock TB2 = (TextBlock)this.FindName(textblock2);
+                    TextBlock TB3 = (TextBlock)this.FindName(textblock3);
+                    if(TB1.Text != "" & TB2.Text != "" & TB3.Text != "")
+                    {
+                        isEverythingExceptCall++;
+                    }
+                    if (isEverythingExceptCall == 16)
+                    {
+                        announceLabelChose.Visibility = Visibility.Visible;
+                        isEverythingExceptCallBool = true;
+                        break;
+                    }
+                }
+            }
+            if (!isEverythingExceptCallBool)
+            {
+
+                Border1.IsEnabled = true;
+                Border2.IsEnabled = true;
+                Border3.IsEnabled = true;
+                Border4.IsEnabled = true;
+                Border5.IsEnabled = true;
+                Border6.IsEnabled = true;
+                Image[] diceImages = { Dice1, Dice2, Dice3, Dice4, Dice5, Dice6 };
+                for (int i = 1; i <= 6; i++)
+                {
                     scoreDictionary[i] = 0;
-            }
-            for(int i = 0; i<6; i++)
-            {
-                if (isDiceClicked[i])
-                {
-                    scoreDictionary[diceValue[i]] += 1;
                 }
-            }
-
-
-            for (int i = 0; i < 6; i++)
-            {
-                int randomNumber = random.Next(1, 7);
-                if (diceBorders[i].BorderBrush == Brushes.Transparent)
+                for (int i = 0; i < 6; i++)
                 {
-                    string imagePath = $"pack://application:,,,/Images/{randomNumber}.png";
-                    diceImages[i].Source = new BitmapImage(new Uri(imagePath, UriKind.Absolute));
-                    scoreDictionary[randomNumber] += 1;
-                    diceValue[i] = randomNumber;
+                    if (isDiceClicked[i])
+                    {
+                        scoreDictionary[diceValue[i]] += 1;
+                    }
                 }
-            }
 
 
-            rollCount++;
+                for (int i = 0; i < 6; i++)
+                {
+                    int randomNumber = random.Next(1, 7);
+                    if (diceBorders[i].BorderBrush == Brushes.Transparent)
+                    {
+                        string imagePath = $"pack://application:,,,/Images/{randomNumber}.png";
+                        diceImages[i].Source = new BitmapImage(new Uri(imagePath, UriKind.Absolute));
+                        scoreDictionary[randomNumber] += 1;
+                        diceValue[i] = randomNumber;
+                    }
+                }
 
-            if(rollCount >= maxRolls)
-            {
-                RollDiceButton.IsEnabled = false;
-                Border1.BorderBrush = (Brush)new BrushConverter().ConvertFromString("#3FA2F6");
-                Border1.BorderThickness = new Thickness(3);
-                Border1.IsEnabled = false;
-                Border2.BorderBrush = (Brush)new BrushConverter().ConvertFromString("#3FA2F6");
-                Border2.BorderThickness = new Thickness(3);
-                Border2.IsEnabled = false;
-                Border3.BorderBrush = (Brush)new BrushConverter().ConvertFromString("#3FA2F6");
-                Border3.BorderThickness = new Thickness(3);
-                Border3.IsEnabled = false;
-                Border4.BorderBrush = (Brush)new BrushConverter().ConvertFromString("#3FA2F6");
-                Border4.BorderThickness = new Thickness(3);
-                Border4.IsEnabled = false;
-                Border5.BorderBrush = (Brush)new BrushConverter().ConvertFromString("#3FA2F6");
-                Border5.BorderThickness = new Thickness(3);
-                Border5.IsEnabled = false;
-                Border6.BorderBrush = (Brush)new BrushConverter().ConvertFromString("#3FA2F6");
-                Border6.BorderThickness = new Thickness(3);
-                Border6.IsEnabled = false;
 
-            }
+                rollCount++;
 
-            if(rollCount == 1)
-            {
-                Announce.IsEnabled = true;
-                Announce.Background = (Brush)new BrushConverter().ConvertFromString("#B6DAF8");
-            }
-            else
-            {
-                Announce.IsEnabled = false;
-                Announce.Background = (Brush)new BrushConverter().ConvertFromString("#3FA2F6");
-            }
+                if (rollCount >= maxRolls)
+                {
+                    RollDiceButton.IsEnabled = false;
+                    Border1.BorderBrush = (Brush)new BrushConverter().ConvertFromString("#3FA2F6");
+                    Border1.BorderThickness = new Thickness(3);
+                    Border1.IsEnabled = false;
+                    Border2.BorderBrush = (Brush)new BrushConverter().ConvertFromString("#3FA2F6");
+                    Border2.BorderThickness = new Thickness(3);
+                    Border2.IsEnabled = false;
+                    Border3.BorderBrush = (Brush)new BrushConverter().ConvertFromString("#3FA2F6");
+                    Border3.BorderThickness = new Thickness(3);
+                    Border3.IsEnabled = false;
+                    Border4.BorderBrush = (Brush)new BrushConverter().ConvertFromString("#3FA2F6");
+                    Border4.BorderThickness = new Thickness(3);
+                    Border4.IsEnabled = false;
+                    Border5.BorderBrush = (Brush)new BrushConverter().ConvertFromString("#3FA2F6");
+                    Border5.BorderThickness = new Thickness(3);
+                    Border5.IsEnabled = false;
+                    Border6.BorderBrush = (Brush)new BrushConverter().ConvertFromString("#3FA2F6");
+                    Border6.BorderThickness = new Thickness(3);
+                    Border6.IsEnabled = false;
 
-            if(rollCount == 3 && announceClicked)
-            {
-                FourthColumnWrite();
+                }
+
+                if (rollCount == 1 && !(Rowwww1.Text != "" && Rowwww2.Text != "" && Rowwww3.Text != "" && Rowwww4.Text != "" && Rowwww5.Text != "" && Rowwww6.Text != "" && Rowwww7.Text != "" && Rowwww8.Text != "" && Rowwww9.Text != "" && Rowwww10.Text != "" && Rowwww11.Text != "" && Rowwww12.Text != "" && Rowwww13.Text != "" && Rowwww14.Text != "" && Rowwww15.Text != "" && Rowwww16.Text != ""))
+                {
+                    Announce.IsEnabled = true;
+                    Announce.Background = (Brush)new BrushConverter().ConvertFromString("#B6DAF8");
+                }
+                else
+                {
+                    Announce.IsEnabled = false;
+                    Announce.Background = (Brush)new BrushConverter().ConvertFromString("#3FA2F6");
+                }
+
+                if (rollCount == 3 && announceClicked)
+                {
+                    FourthColumnWrite();
+                }
             }
 
         }
@@ -415,8 +444,13 @@ namespace Yamb
                     TextBlock4.IsEnabled = true;
                 }
             }
-            TextBlock tb = (TextBlock)FindName(clickedFourthTextBlockName);
-            tb.Background = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#B6DAF8"));
+            string textBlockNumber = new string(clickedFourthTextBlockName.Where(char.IsDigit).ToArray());
+            string borderName = "Call" + textBlockNumber;
+
+            // Use FindName to retrieve the Border element by its name
+            Border border = (Border)this.FindName(borderName);
+            border.Background = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#B6DAF8"));
+
             ResetDices();
             if (Sum1.Text != "" && Sum2.Text != "" && Sum3.Text != "")
             {
@@ -430,6 +464,8 @@ namespace Yamb
             Border clickedBorder = sender as Border;
             int borderIndex = Array.IndexOf(diceBorders, clickedBorder);
 
+
+
             if (borderIndex >= 0)
             {
                 if (clickedBorder.BorderBrush == Brushes.Transparent)
@@ -441,7 +477,6 @@ namespace Yamb
                 else
                 {
                     clickedBorder.BorderBrush = Brushes.Transparent;
-                  //clickedBorder.BorderThickness = new Thickness(0);
                     isDiceClicked[borderIndex] = false;
                 }
             }
@@ -452,6 +487,8 @@ namespace Yamb
             RollDiceButton.IsEnabled = false;
             announceClicked = true;
             Announce.Background = Announce.Background = (Brush)new BrushConverter().ConvertFromString("#3FA2F6");
+            announceLabelChose.Visibility = Visibility.Hidden;
+            isEverythingExceptCallBool = false;
             announceLabel.Visibility = Visibility.Visible;
 
             for (int i = 1; i < 17; i++)
@@ -1333,301 +1370,315 @@ namespace Yamb
         {
             TextBlock clickedTextBlock = sender as TextBlock;
 
-            if (rollCount == 1)
+            if (announceClicked)
             {
 
-                clickedFourthTextBlockName = clickedTextBlock.Name;
-                fourthColumnTextBox = clickedTextBlock;
-                announceLabel.Visibility = Visibility.Hidden;
-                RollDiceButton.IsEnabled = true;
-                Announce.IsEnabled = false;
+                if (rollCount == 1)
+                {
 
-                clickedTextBlock.Background = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#76c1df"));
-                for(int i = 1; i < 17; i++)
+                    clickedFourthTextBlockName = clickedTextBlock.Name;
+                    fourthColumnTextBox = clickedTextBlock;
+                    announceLabel.Visibility = Visibility.Hidden;
+                    RollDiceButton.IsEnabled = true;
+                    Announce.IsEnabled = false;
+
+                    string textBlockNumber = new string(clickedFourthTextBlockName.Where(char.IsDigit).ToArray());
+                    string borderName = "Call" + textBlockNumber;
+
+                    // Use FindName to retrieve the Border element by its name
+                    Border border = (Border)this.FindName(borderName);
+                    border.Background = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#76c1df"));
+                    for (int i = 1; i < 17; i++)
+                    {
+                        string Block4 = "Rowwww" + i;
+                        TextBlock TextBlock4 = (TextBlock)this.FindName(Block4);
+                        if (fourthColumnTextBox != TextBlock4)
+                        {
+                            TextBlock4.IsEnabled = false;
+                        }
+
+                    }
+
+                    return;
+                }
+
+                if (rollCount == 2 && (clickedFourthTextBlockName == "Rowwww1" || clickedFourthTextBlockName == "Rowwww2"
+                    || clickedFourthTextBlockName == "Rowwww3" || clickedFourthTextBlockName == "Rowwww4" || clickedFourthTextBlockName == "Rowwww5" || clickedFourthTextBlockName == "Rowwww6"))
+                {
+                    int textBlockTemp = 0;
+                    for (int i = 1; i <= 6; i++)
+                    {
+                        if (clickedFourthTextBlockName == "Rowwww" + i)
+                        {
+                            textBlockTemp = i;
+                            break;
+                        }
+                    }
+
+                    clickedTextBlock.IsEnabled = true;
+
+                    if (clickedTextBlock != null)
+                    {
+                        if (scoreDictionary[textBlockTemp] > 5) // If a user has 6 of the same
+                        {
+                            scoreDictionary[textBlockTemp] = 5;
+                        }
+                        int score = scoreDictionary[textBlockTemp] * textBlockTemp;
+                        clickedTextBlock.Text = score.ToString();
+                        clickedTextBlock.IsEnabled = false;
+                    }
+
+                }
+
+                if (Rowwww1.Text != "" && Rowwww2.Text != "" && Rowwww3.Text != ""
+                    && Rowwww4.Text != "" && Rowwww5.Text != "" && Rowwww6.Text != "") //Sum first 6
+                {
+                    int sum = 0;
+                    for (int i = 1; i < 7; i++)
+                    {
+                        string textBlockName = "Rowwww" + i;
+                        TextBlock textBlock = (TextBlock)this.FindName(textBlockName);
+                        string text = textBlock.Text;
+                        sum += int.Parse(text);
+                    }
+
+                    if (sum >= 60)
+                        sum += 30;
+
+                    Rowwww7.Text = sum.ToString();
+                    if (Row7.Text != "" && Roww7.Text != "" && Rowww7.Text != "" && Rowwww7.Text != "")
+                    {
+                        int allSum = int.Parse(Row7.Text) + int.Parse(Roww7.Text) + int.Parse(Rowww7.Text) + int.Parse(Rowwww7.Text);
+                        Sum1.Text = allSum.ToString();
+                    }
+                    rollCount = 0;
+                }
+
+                if (rollCount == 2 && clickedFourthTextBlockName == "Rowwww8") //Maximum
+                {
+                    int maximum = 0;
+                    List<int> numbers = new List<int>();
+                    for (int i = 0; i < 6; i++)
+                    {
+                        numbers.Add(diceValue[i]);
+                    }
+
+                    int minValue = numbers.Min();
+                    numbers.Remove(minValue);
+
+                    maximum = numbers.Sum();
+                    Rowwww8.Text = maximum.ToString();
+                    Rowwww8.IsEnabled = false;
+                    ResetDices();
+                }
+
+                if (rollCount == 2 && clickedFourthTextBlockName == "Rowwww9")//MINIMUM
+                {
+                    List<int> numbers = new List<int>();
+                    for (int i = 0; i < 6; i++)
+                    {
+                        numbers.Add(diceValue[i]);
+                    }
+                    int maxValue = numbers.Max();
+                    numbers.Remove(maxValue);
+
+                    Rowwww9.Text = numbers.Sum().ToString();
+                    Rowwww9.IsEnabled = false;
+                }
+
+                if (Rowwww8.Text != "" && Rowwww9.Text != "" && Rowwww1.Text != "") //MINMAX RESULT
+                {
+                    int ones = int.Parse(Rowwww1.Text);
+                    int maximum = int.Parse(Rowwww8.Text);
+                    int minimum = int.Parse(Rowwww9.Text);
+
+                    Rowwww10.Text = (ones * (maximum - minimum)).ToString();
+                    rollCount = 0;
+                    Rowwww10.IsEnabled = false;
+                    if (Row10.Text != "" && Roww10.Text != "" && Rowww10.Text != "" && Rowwww10.Text != "")
+                    {
+                        int allSum = int.Parse(Row10.Text) + int.Parse(Roww10.Text) + int.Parse(Rowww10.Text) + int.Parse(Rowwww10.Text);
+                        Sum2.Text = allSum.ToString();
+                    }
+                }
+
+                if (rollCount == 2 && clickedFourthTextBlockName == "Rowwww11") //KENTA
+                {
+                    if (scoreDictionary[2] > 0 && scoreDictionary[3] > 0 && scoreDictionary[4] > 0 &&
+                        scoreDictionary[5] > 0 && scoreDictionary[6] > 0)
+                    {
+                        Rowwww11.Text = "50";
+                    }
+                    else if (scoreDictionary[1] > 0 && scoreDictionary[2] > 0 && scoreDictionary[3] > 0 &&
+                            scoreDictionary[4] > 0 && scoreDictionary[5] > 0)
+                    {
+                        Rowwww11.Text = "40";
+                    }
+                    else
+                    {
+                        Rowwww11.Text = "0";
+                    }
+                    Rowwww11.IsEnabled = false;
+                    rollCount = 0;
+                }
+
+                if (rollCount == 2 && clickedFourthTextBlockName == "Rowwww12") //TRILING
+                {
+                    for (int i = 6; i > 0; i--)
+                    {
+                        if (scoreDictionary[i] >= 3)
+                        {
+                            if (scoreDictionary[i] > 3)
+                            {
+                                scoreDictionary[i] = 3;
+                            }
+                            Rowwww12.Text = ((scoreDictionary[i] * i) + 20).ToString();
+                            break;
+                        }
+                        else
+                        {
+                            Rowwww12.Text = "0";
+                        }
+                    }
+                    Row12.IsEnabled = false;
+                    rollCount = 0;
+                }
+                if (rollCount == 2 && clickedFourthTextBlockName == "Rowwww13") //FUL
+                {
+                    for (int i = 6; i > 0; i--)
+                    {
+                        if (scoreDictionary[i] >= 3)
+                        {
+                            for (int j = 6; j > 0; j--)
+                            {
+                                if (j == i)
+                                {
+                                    continue;
+                                }
+                                if (scoreDictionary[j] >= 2)
+                                {
+                                    if (scoreDictionary[i] > 3)
+                                    {
+                                        scoreDictionary[i] = 3;
+                                    }
+                                    if (scoreDictionary[j] > 2)
+                                    {
+                                        scoreDictionary[j] = 2;
+                                    }
+                                    int ful = (scoreDictionary[i] * i + scoreDictionary[j] * j) + 30;
+                                    Rowwww13.Text = ful.ToString();
+                                    break;
+                                }
+                            }
+                        }
+                        else if (Rowwww13.Text == "")
+                        {
+                            Rowwww13.Text = "0";
+                        }
+                    }
+                    Rowwww13.IsEnabled = false;
+                    rollCount = 0;
+                }
+
+                if (rollCount == 2 && clickedFourthTextBlockName == "Rowwww14") //Poker
+                {
+                    for (int i = 6; i > 0; i--)
+                    {
+                        if (scoreDictionary[i] >= 4)
+                        {
+                            if (scoreDictionary[i] > 4)
+                            {
+                                scoreDictionary[i] = 4;
+                            }
+                            Rowwww14.Text = ((scoreDictionary[i] * i) + 40).ToString();
+                            break;
+                        }
+                        else
+                        {
+                            Rowwww14.Text = "0";
+                        }
+                    }
+                    Rowwww14.IsEnabled = false;
+                    rollCount = 0;
+                }
+
+                if (rollCount == 2 && clickedFourthTextBlockName == "Rowwww15") //JAMB
+                {
+                    for (int i = 6; i > 0; i--)
+                    {
+                        if (scoreDictionary[i] >= 5)
+                        {
+                            if (scoreDictionary[i] > 5)
+                            {
+                                scoreDictionary[i] = 5;
+                            }
+                            Rowwww15.Text = ((scoreDictionary[i] * i) + 50).ToString();
+                            break;
+                        }
+                        else
+                        {
+                            Rowwww15.Text = "0";
+                        }
+                    }
+                    Rowwww15.IsEnabled = false;
+                    rollCount = 0;
+                }
+
+                if (Rowwww15.Text != "" && Rowwww14.Text != "" && Rowwww13.Text != "" && Rowwww12.Text != "" && Rowwww11.Text != "")
+                {
+                    int sum = 0;
+                    for (int i = 11; i < 16; i++)
+                    {
+                        string textBlockName = "Rowwww" + i;
+                        TextBlock textBlock = (TextBlock)this.FindName(textBlockName);
+                        string text = textBlock.Text;
+                        sum += int.Parse(text);
+                    }
+
+                    Rowwww16.Text = sum.ToString();
+                    if (Row16.Text != "" && Roww16.Text != "" && Rowww16.Text != "" && Rowwww16.Text != "")
+                    {
+                        int allSum = int.Parse(Row16.Text) + int.Parse(Roww16.Text) + int.Parse(Rowww16.Text) + int.Parse(Rowwww16.Text);
+                        Sum3.Text = allSum.ToString();
+                    }
+                }
+
+                TextBlock1.IsEnabled = true;
+                TextBlock2.IsEnabled = true;
+
+                for (int i = 1; i < 17; i++)
+                {
+                    string Block3 = "Rowww" + i;
+                    TextBlock TextBlock3 = (TextBlock)this.FindName(Block3);
+                    if (TextBlock3.Text == "")
+                    {
+                        TextBlock3.IsEnabled = true;
+                    }
+                }
+
+                for (int i = 1; i < 17; i++)
                 {
                     string Block4 = "Rowwww" + i;
                     TextBlock TextBlock4 = (TextBlock)this.FindName(Block4);
-                    if (fourthColumnTextBox != TextBlock4)
+                    if (TextBlock4.Text == "")
                     {
-                        TextBlock4.IsEnabled = false;
-                    }
-
-                }
-
-                return;
-            }
-
-            if (rollCount == 2 && (clickedFourthTextBlockName == "Rowwww1" || clickedFourthTextBlockName == "Rowwww2"
-                || clickedFourthTextBlockName == "Rowwww3" || clickedFourthTextBlockName == "Rowwww4" || clickedFourthTextBlockName == "Rowwww5" || clickedFourthTextBlockName == "Rowwww6"))
-            {
-                int textBlockTemp = 0;
-                for (int i = 1; i <= 6; i++)
-                {
-                    if (clickedFourthTextBlockName == "Rowwww" + i)
-                    {
-                        textBlockTemp = i;
-                        break;
+                        TextBlock4.IsEnabled = true;
                     }
                 }
+                announceClicked = false;
 
-                clickedTextBlock.IsEnabled = true;
+                string textBlockNumberr = new string(clickedFourthTextBlockName.Where(char.IsDigit).ToArray());
+                string borderNamee = "Call" + textBlockNumberr;
 
-                if (clickedTextBlock != null)
-                {
-                    if (scoreDictionary[textBlockTemp] > 5) // If a user has 6 of the same
-                    {
-                        scoreDictionary[textBlockTemp] = 5;
-                    }
-                    int score = scoreDictionary[textBlockTemp] * textBlockTemp;
-                    clickedTextBlock.Text = score.ToString();
-                    clickedTextBlock.IsEnabled = false;
-                }
-
-            }
-
-            if (Rowwww1.Text != "" && Rowwww2.Text != "" && Rowwww3.Text != ""
-                && Rowwww4.Text != "" && Rowwww5.Text != "" && Rowwww6.Text != "") //Sum first 6
-            {
-                int sum = 0;
-                for (int i = 1; i < 7; i++)
-                {
-                    string textBlockName = "Rowwww" + i;
-                    TextBlock textBlock = (TextBlock)this.FindName(textBlockName);
-                    string text = textBlock.Text;
-                    sum += int.Parse(text);
-                }
-
-                if (sum >= 60)
-                    sum += 30;
-
-                Rowwww7.Text = sum.ToString();
-                if (Row7.Text != "" && Roww7.Text != "" && Rowww7.Text != "" && Rowwww7.Text != "")
-                {
-                    int allSum = int.Parse(Row7.Text) + int.Parse(Roww7.Text) + int.Parse(Rowww7.Text) + int.Parse(Rowwww7.Text);
-                    Sum1.Text = allSum.ToString();
-                }
-                rollCount = 0;
-            }
-
-            if (rollCount == 2 && clickedFourthTextBlockName == "Rowwww8") //Maximum
-            {
-                int maximum = 0;
-                List<int> numbers = new List<int>();
-                for (int i = 0; i < 6; i++)
-                {
-                    numbers.Add(diceValue[i]);
-                }
-
-                int minValue = numbers.Min();
-                numbers.Remove(minValue);
-
-                maximum = numbers.Sum();
-                Rowwww8.Text = maximum.ToString();
-                Rowwww8.IsEnabled = false;
+                // Use FindName to retrieve the Border element by its name
+                Border borderr = (Border)this.FindName(borderNamee);
+                borderr.Background = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#B6DAF8"));
                 ResetDices();
-            }
 
-            if (rollCount == 2 && clickedFourthTextBlockName == "Rowwww9")//MINIMUM
-            { 
-                List<int> numbers = new List<int>();
-                for (int i = 0; i < 6; i++)
+                if (Sum1.Text != "" && Sum2.Text != "" && Sum3.Text != "")
                 {
-                    numbers.Add(diceValue[i]);
+                    OnGameEnd(int.Parse(Sum1.Text) + int.Parse(Sum2.Text) + int.Parse(Sum3.Text));
                 }
-                int maxValue = numbers.Max();
-                numbers.Remove(maxValue);
-
-                Rowwww9.Text = numbers.Sum().ToString();
-                Rowwww9.IsEnabled = false;
-            }
-
-            if (Rowwww8.Text != "" && Rowwww9.Text != "" && Rowwww1.Text != "") //MINMAX RESULT
-            {
-                int ones = int.Parse(Rowwww1.Text);
-                int maximum = int.Parse(Rowwww8.Text);
-                int minimum = int.Parse(Rowwww9.Text);
-
-                Rowwww10.Text = (ones * (maximum - minimum)).ToString();
-                rollCount = 0;
-                Rowwww10.IsEnabled = false;
-                if (Row10.Text != "" && Roww10.Text != "" && Rowww10.Text != "" && Rowwww10.Text != "")
-                {
-                    int allSum = int.Parse(Row10.Text) + int.Parse(Roww10.Text) + int.Parse(Rowww10.Text) + int.Parse(Rowwww10.Text);
-                    Sum2.Text = allSum.ToString();
-                }
-            }
-
-            if (rollCount == 2 && clickedFourthTextBlockName == "Rowwww11") //KENTA
-            {
-                if (scoreDictionary[2] > 0 && scoreDictionary[3] > 0 && scoreDictionary[4] > 0 &&
-                    scoreDictionary[5] > 0 && scoreDictionary[6] > 0)
-                {
-                    Rowwww11.Text = "50";
-                }
-                else if (scoreDictionary[1] > 0 && scoreDictionary[2] > 0 && scoreDictionary[3] > 0 &&
-                        scoreDictionary[4] > 0 && scoreDictionary[5] > 0)
-                {
-                    Rowwww11.Text = "40";
-                }
-                else
-                {
-                    Rowwww11.Text = "0";
-                }
-                Rowwww11.IsEnabled = false;
-                rollCount = 0;
-            }
-
-            if (rollCount == 2 && clickedFourthTextBlockName == "Rowwww12") //TRILING
-            {
-                for (int i = 6; i > 0; i--)
-                {
-                    if (scoreDictionary[i] >= 3)
-                    {
-                        if (scoreDictionary[i] > 3)
-                        {
-                            scoreDictionary[i] = 3;
-                        }
-                        Rowwww12.Text = ((scoreDictionary[i] * i) + 20).ToString();
-                        break;
-                    }
-                    else
-                    {
-                        Rowwww12.Text = "0";
-                    }
-                }
-                Row12.IsEnabled = false;
-                rollCount = 0;
-            }
-            if (rollCount == 2 && clickedFourthTextBlockName == "Rowwww13") //FUL
-            {
-                for (int i = 6; i > 0; i--)
-                {
-                    if (scoreDictionary[i] >= 3)
-                    {
-                        for (int j = 6; j > 0; j--)
-                        {
-                            if (j == i)
-                            {
-                                continue;
-                            }
-                            if (scoreDictionary[j] >= 2)
-                            {
-                                if (scoreDictionary[i] > 3)
-                                {
-                                    scoreDictionary[i] = 3;
-                                }
-                                if (scoreDictionary[j] > 2)
-                                {
-                                    scoreDictionary[j] = 2;
-                                }
-                                int ful = (scoreDictionary[i] * i + scoreDictionary[j] * j) + 30;
-                                Rowwww13.Text = ful.ToString();
-                                break;
-                            }
-                        }
-                    }
-                    else if (Rowwww13.Text == "")
-                    {
-                        Rowwww13.Text = "0";
-                    }
-                }
-                Rowwww13.IsEnabled = false;
-                rollCount = 0;
-            }
-
-            if (rollCount == 2 && clickedFourthTextBlockName == "Rowwww14") //Poker
-            {
-                for (int i = 6; i > 0; i--)
-                {
-                    if (scoreDictionary[i] >= 4)
-                    {
-                        if (scoreDictionary[i] > 4)
-                        {
-                            scoreDictionary[i] = 4;
-                        }
-                        Rowwww14.Text = ((scoreDictionary[i] * i) + 40).ToString();
-                        break;
-                    }
-                    else
-                    {
-                        Rowwww14.Text = "0";
-                    }
-                }
-                Rowwww14.IsEnabled = false;
-                rollCount = 0;
-            }
-
-            if (rollCount == 2 && clickedFourthTextBlockName == "Rowwww15") //JAMB
-            {
-                for (int i = 6; i > 0; i--)
-                {
-                    if (scoreDictionary[i] >= 5)
-                    {
-                        if (scoreDictionary[i] > 5)
-                        {
-                            scoreDictionary[i] = 5;
-                        }
-                        Rowwww15.Text = ((scoreDictionary[i] * i) + 50).ToString();
-                        break;
-                    }
-                    else
-                    {
-                        Rowwww15.Text = "0";
-                    }
-                }
-                Rowwww15.IsEnabled = false;
-                rollCount = 0;
-            }
-
-            if (Rowwww15.Text != "" && Rowwww14.Text != "" && Rowwww13.Text != "" && Rowwww12.Text != "" && Rowwww11.Text != "")
-            {
-                int sum = 0;
-                for (int i = 11; i < 16; i++)
-                {
-                    string textBlockName = "Rowwww" + i;
-                    TextBlock textBlock = (TextBlock)this.FindName(textBlockName);
-                    string text = textBlock.Text;
-                    sum += int.Parse(text);
-                }
-
-                Rowwww16.Text = sum.ToString();
-                if (Row16.Text != "" && Roww16.Text != "" && Rowww16.Text != "" && Rowwww16.Text != "")
-                {
-                    int allSum = int.Parse(Row16.Text) + int.Parse(Roww16.Text) + int.Parse(Rowww16.Text) + int.Parse(Rowwww16.Text);
-                    Sum3.Text = allSum.ToString();
-                }
-            }
-
-            TextBlock1.IsEnabled = true;
-            TextBlock2.IsEnabled = true;
-
-            for (int i = 1; i < 17; i++)
-            {
-                string Block3 = "Rowww" + i;
-                TextBlock TextBlock3 = (TextBlock)this.FindName(Block3);
-                if (TextBlock3.Text == "")
-                {
-                    TextBlock3.IsEnabled = true;
-                }
-            }
-
-            for (int i = 1; i < 17; i++)
-            {
-                string Block4 = "Rowwww" + i;
-                TextBlock TextBlock4 = (TextBlock)this.FindName(Block4);
-                if(TextBlock4.Text == "")
-                {
-                    TextBlock4.IsEnabled = true;
-                }
-            }
-            announceClicked = false;
-
-            clickedTextBlock.Background = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#B6DAF8"));
-            ResetDices();
-
-            if (Sum1.Text != "" && Sum2.Text != "" && Sum3.Text != "")
-            {
-                OnGameEnd(int.Parse(Sum1.Text) + int.Parse(Sum2.Text) + int.Parse(Sum3.Text));
             }
         }
         #endregion
@@ -1652,6 +1703,12 @@ namespace Yamb
             Border5.BorderThickness = new Thickness(0);
             Border6.BorderBrush = Brushes.Transparent;
             Border6.BorderThickness = new Thickness(0);
+            Border1.IsEnabled = false;
+            Border2.IsEnabled = false;
+            Border3.IsEnabled = false;
+            Border4.IsEnabled = false;
+            Border5.IsEnabled = false;
+            Border6.IsEnabled = false;
             rollCount = 0;
             RollDiceButton.IsEnabled = true;
 
@@ -1660,9 +1717,19 @@ namespace Yamb
         private void OnGameEnd(int score)
         {
             EndPopUp popup = new EndPopUp(score);
-
-            //DO A RESTART
+            bool? result = popup.ShowDialog();
+            if (result == true)
+            {
+                RestartGame();
+            }
         }
+
+        private void RestartGame()
+        {
+            
+            // Reset game variables, UI, etc.
+        }
+
     }
 
 
