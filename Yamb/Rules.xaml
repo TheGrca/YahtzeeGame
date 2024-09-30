@@ -1,0 +1,104 @@
+﻿<Window x:Class="Yamb.Rules"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Yamb"
+        mc:Ignorable="d"
+        Background="#E2F1FC"
+        Title="Yahtzee Rules" Height="800" Width="600"
+        Icon="Images/logo.png" ResizeMode="NoResize" Loaded="Window_Loaded">
+    <Window.Resources>
+        <!-- Reusable Button Style -->
+        <Style TargetType="Button" x:Key="CoolButtonStyle">
+            <Setter Property="Background" Value="#B6DAF8"/>
+            <Setter Property="Foreground" Value="Black"/>
+            <Setter Property="FontWeight" Value="SemiBold"/>
+            <Setter Property="FontSize" Value="16"/>
+            <Setter Property="BorderThickness" Value="0"/>
+            <Setter Property="Cursor" Value="Hand"/>
+            <Setter Property="Width" Value="150"/>
+            <Setter Property="Height" Value="200"/>
+            <Setter Property="HorizontalAlignment" Value="Center"/>
+            <Setter Property="VerticalAlignment" Value="Center"/>
+            <Setter Property ="FontFamily" Value="Segoe UI"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Border Background="{TemplateBinding Background}" 
+                             CornerRadius="10">
+                            <ContentPresenter HorizontalAlignment="Center"
+                                           VerticalAlignment="Center"/>
+                        </Border>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+
+            <!-- Animation on Mouse Over -->
+            <Style.Triggers>
+                <Trigger Property="IsMouseOver" Value="True">
+                    <Trigger.EnterActions>
+                        <BeginStoryboard>
+                            <Storyboard>
+                                <ColorAnimation Storyboard.TargetProperty="(Button.Background).(SolidColorBrush.Color)"
+                                             To="#A2CFF2"
+                                             Duration="0:0:0.3"/>
+                            </Storyboard>
+                        </BeginStoryboard>
+                    </Trigger.EnterActions>
+                    <Trigger.ExitActions>
+                        <BeginStoryboard>
+                            <Storyboard>
+                                <ColorAnimation Storyboard.TargetProperty="(Button.Background).(SolidColorBrush.Color)"
+                                             To="#B6DAF8"
+                                             Duration="0:0:0.3"/>
+                            </Storyboard>
+                        </BeginStoryboard>
+                    </Trigger.ExitActions>
+                </Trigger>
+            </Style.Triggers>
+        </Style>
+    </Window.Resources>
+    <Grid>
+        <TextBlock Text="RULES" HorizontalAlignment="Center" VerticalAlignment="Top" FontSize="40" FontFamily="Segoe UI" FontWeight="SemiBold" Margin="0 10 0 0"/>
+        <TextBlock FontSize="15" HorizontalAlignment="Left" Width="250" Height="42" VerticalAlignment="Top" Margin="62,87,0,0" FontWeight="SemiBold" Text="Description of the rows in the table:"/>
+        <TextBlock FontSize="14" HorizontalAlignment="Left" Width="445" Height="42" VerticalAlignment="Top" Margin="62,116,0,0" Text="1. Ones to sixes - the sum of five dice with the selected value"/>
+        <TextBlock FontSize="14" HorizontalAlignment="Left" Width="372" Height="41" VerticalAlignment="Top" Margin="62,144,0,0" Text="2. Maximum - a maximum sum of five dice:"/>
+        <TextBlock FontSize="14" HorizontalAlignment="Left" Width="348" Height="43" VerticalAlignment="Top" Margin="62,167,0,0" Text="3. Minimum - a minimum sum of five dice"/>
+        <TextBlock FontSize="14" HorizontalAlignment="Left" Width="499" Height="42" VerticalAlignment="Top" Margin="62,194,0,0"><Run Text="4. Scale - the selected dice must have the values ​​1,2,3,4,5 (40 points) "/><LineBreak/><Run Text="     or 2,3,4,5,6 (50 points)"/></TextBlock>
+        <TextBlock FontSize="14" HorizontalAlignment="Left" Width="462" Height="41" VerticalAlignment="Top" Margin="62,241,0,0"><Run Text="5. Trilling - 3 of the same dice. 20 points are added to the sum of"/><LineBreak/><Run Text="    those three dice"/></TextBlock>
+        <TextBlock FontSize="14" HorizontalAlignment="Left" Width="516" Height="42" VerticalAlignment="Top" Margin="62,283,0,0"><Run Text="6. Full - 3 of the same + 2 of the same dice. 30 points are added to the sum of "/><LineBreak/><Run Text="    those five dice"/></TextBlock>
+        <TextBlock FontSize="14" HorizontalAlignment="Left" Width="435" Height="41" VerticalAlignment="Top" Margin="62,325,0,0"><Run Text="7. Poker - 4 of the same dice. 40 points are added to the sum of"/><LineBreak/><Run Text="    those four dice"/></TextBlock>
+        <TextBlock FontSize="14" HorizontalAlignment="Left" Width="496" Height="42" VerticalAlignment="Top" Margin="62,366,0,0"><Run Text="8. Yahtzee - 5 of the same dice. 50 points are added to the sum of "/><LineBreak/><Run Text="    those five dice"/></TextBlock>
+
+        <Image Source="Images/arr.png" Margin="20 220 390 50" RenderTransformOrigin="0.5,0.5" Height="20">
+            <Image.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform Angle="90"/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Image.RenderTransform>
+        </Image>
+        <Image Source="Images/arr.png" Margin="20 290 390 50" RenderTransformOrigin="0.5,0.5" Height="20">
+            <Image.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform Angle="-90"/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Image.RenderTransform>
+        </Image>
+        <TextBlock FontSize="15" HorizontalAlignment="Left" Width="316" Height="40" VerticalAlignment="Top" Margin="62,424,0,0" FontWeight="SemiBold" Text="Description of the columns in the table:"/>
+        <TextBlock FontSize="15" HorizontalAlignment="Left" Width="326" Height="39" VerticalAlignment="Top" Margin="122,452,0,0" Text="- Only fills down"/>
+        <TextBlock FontSize="14" HorizontalAlignment="Left" Width="360" Height="38" VerticalAlignment="Top" Margin="122,491,0,0" Text="- Only fills up"/>
+        <TextBlock FontSize="14" HorizontalAlignment="Left" Width="336" Height="40" VerticalAlignment="Top" Margin="96,524,0,0" Text="Free - Filled in by choice (Free)"/>
+        <TextBlock FontSize="14" HorizontalAlignment="Left" Width="482" Height="39" VerticalAlignment="Top" Margin="96,549,0,0" Text="Call - Must be announced after the first throw (Announcement)"/>
+
+        <TextBlock FontSize="15" HorizontalAlignment="Left" Width="482" Height="110" VerticalAlignment="Top" Margin="62,588,0,0" FontWeight="SemiBold"><Run Text="After the last throw, the result is automatically calculated according to"/><LineBreak/><Run Text="the formula for the columns:"/></TextBlock>
+        <TextBlock FontSize="14" HorizontalAlignment="Left" Width="482" Height="38" VerticalAlignment="Top" Margin="62,640,0,0"><Run Text="Rk=1+2+3+4+5+6+A+(Maximum-Minimum)*Ones+S+T+F+P+Y, "/><LineBreak/><Run Text="where A=30 only if 1+2+3+4+5+6&gt;=60 else A=0"/></TextBlock>
+        <Button Name="CloseButton" Content="Close" Width="264" Height="52" Click="CloseButton_Click" Style="{StaticResource CoolButtonStyle}" VerticalAlignment="Bottom" Margin="0 0 0 10"/>
+    </Grid>
+</Window>

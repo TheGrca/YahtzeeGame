@@ -16,3 +16,5 @@ C:\Users\Korisnik\Desktop\Yamb\Yamb\obj\Debug\Yamb.pdb
 C:\Users\Korisnik\Desktop\Yamb\Yamb\obj\Debug\Yamb_Content.g.cs
 C:\Users\Korisnik\Desktop\Yamb\Yamb\obj\Debug\EndPopUp.g.cs
 C:\Users\Korisnik\Desktop\Yamb\Yamb\obj\Debug\EndPopUp.baml
+C:\Users\Korisnik\Desktop\Yamb\Yamb\obj\Debug\Rules.g.cs
+C:\Users\Korisnik\Desktop\Yamb\Yamb\obj\Debug\Rules.baml

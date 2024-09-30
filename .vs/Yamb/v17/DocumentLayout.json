@@ -3,8 +3,16 @@
   "WorkspaceRootPath": "C:\\Users\\Korisnik\\Desktop\\Yamb\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{15A424B9-9F9A-41D1-AC10-2AB6E4CE1807}|Yamb\\Yamb.csproj|c:\\users\\korisnik\\desktop\\yamb\\yamb\\rules.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{15A424B9-9F9A-41D1-AC10-2AB6E4CE1807}|Yamb\\Yamb.csproj|solutionrelative:yamb\\rules.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{15A424B9-9F9A-41D1-AC10-2AB6E4CE1807}|Yamb\\Yamb.csproj|c:\\users\\korisnik\\desktop\\yamb\\yamb\\mainwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{15A424B9-9F9A-41D1-AC10-2AB6E4CE1807}|Yamb\\Yamb.csproj|solutionrelative:yamb\\mainwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{15A424B9-9F9A-41D1-AC10-2AB6E4CE1807}|Yamb\\Yamb.csproj|c:\\users\\korisnik\\desktop\\yamb\\yamb\\rules.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{15A424B9-9F9A-41D1-AC10-2AB6E4CE1807}|Yamb\\Yamb.csproj|solutionrelative:yamb\\rules.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{15A424B9-9F9A-41D1-AC10-2AB6E4CE1807}|Yamb\\Yamb.csproj|C:\\Users\\Korisnik\\Desktop\\Yamb\\yamb\\mainwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
@@ -26,24 +34,49 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 3,
+          "SelectedChildIndex": 1,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 2,
+              "Title": "Rules.xaml.cs",
+              "DocumentMoniker": "C:\\Users\\Korisnik\\Desktop\\Yamb\\Yamb\\Rules.xaml.cs",
+              "RelativeDocumentMoniker": "Yamb\\Rules.xaml.cs",
+              "ToolTip": "C:\\Users\\Korisnik\\Desktop\\Yamb\\Yamb\\Rules.xaml.cs",
+              "RelativeToolTip": "Yamb\\Rules.xaml.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAACEAAAAmAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-30T20:14:46.816Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Rules.xaml",
+              "DocumentMoniker": "C:\\Users\\Korisnik\\Desktop\\Yamb\\Yamb\\Rules.xaml",
+              "RelativeDocumentMoniker": "Yamb\\Rules.xaml",
+              "ToolTip": "C:\\Users\\Korisnik\\Desktop\\Yamb\\Yamb\\Rules.xaml",
+              "RelativeToolTip": "Yamb\\Rules.xaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2024-09-30T20:11:56.502Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
               "Title": "EndPopUp.xaml.cs",
               "DocumentMoniker": "C:\\Users\\Korisnik\\Desktop\\Yamb\\Yamb\\EndPopUp.xaml.cs",
               "RelativeDocumentMoniker": "Yamb\\EndPopUp.xaml.cs",
               "ToolTip": "C:\\Users\\Korisnik\\Desktop\\Yamb\\Yamb\\EndPopUp.xaml.cs",
               "RelativeToolTip": "Yamb\\EndPopUp.xaml.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAACYAAAAJAAAA",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABwAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-09-29T12:51:00.036Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 4,
               "Title": "EndPopUp.xaml",
               "DocumentMoniker": "C:\\Users\\Korisnik\\Desktop\\Yamb\\Yamb\\EndPopUp.xaml",
               "RelativeDocumentMoniker": "Yamb\\EndPopUp.xaml",
@@ -55,7 +88,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 3,
               "Title": "MainWindow.xaml",
               "DocumentMoniker": "C:\\Users\\Korisnik\\Desktop\\Yamb\\Yamb\\MainWindow.xaml",
               "RelativeDocumentMoniker": "Yamb\\MainWindow.xaml",
@@ -67,13 +100,13 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 1,
               "Title": "MainWindow.xaml.cs",
               "DocumentMoniker": "C:\\Users\\Korisnik\\Desktop\\Yamb\\Yamb\\MainWindow.xaml.cs",
               "RelativeDocumentMoniker": "Yamb\\MainWindow.xaml.cs",
               "ToolTip": "C:\\Users\\Korisnik\\Desktop\\Yamb\\Yamb\\MainWindow.xaml.cs",
               "RelativeToolTip": "Yamb\\MainWindow.xaml.cs",
-              "ViewState": "AQIAAK4AAAAAAAAAAAAiwOwBAAAbAAAA",
+              "ViewState": "AQIAAAMCAAAAAAAAAAAYwBcHAAAfAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-09-18T17:48:03.247Z",
               "EditorCaption": ""

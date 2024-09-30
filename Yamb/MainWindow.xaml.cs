@@ -1810,6 +1810,12 @@ namespace Yamb
 
         }
 
+        private void RulesClick(object sender, RoutedEventArgs e)
+        {
+            Rules rules = new Rules();
+            rules.ShowDialog();
+        }
+
     }
 
 
