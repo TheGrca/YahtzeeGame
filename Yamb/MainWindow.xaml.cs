@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
+using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
@@ -66,6 +67,7 @@ namespace Yamb
         TextBlock TextBlock1 = new TextBlock();
         TextBlock TextBlock2 = new TextBlock();
         bool isEverythingExceptCallBool = false;
+        bool isNumberSelected = false;
 
         public MainWindow()
         {
@@ -166,12 +168,14 @@ namespace Yamb
                 if (rollCount == 1 && !(Rowwww1.Text != "" && Rowwww2.Text != "" && Rowwww3.Text != "" && Rowwww4.Text != "" && Rowwww5.Text != "" && Rowwww6.Text != "" && Rowwww7.Text != "" && Rowwww8.Text != "" && Rowwww9.Text != "" && Rowwww10.Text != "" && Rowwww11.Text != "" && Rowwww12.Text != "" && Rowwww13.Text != "" && Rowwww14.Text != "" && Rowwww15.Text != "" && Rowwww16.Text != ""))
                 {
                     Announce.IsEnabled = true;
-                    Announce.Background = (Brush)new BrushConverter().ConvertFromString("#B6DAF8");
+                    // Announce.Background = (Brush)new BrushConverter().ConvertFromString("#3FA2F6");
+                    announceLabelSelect.Visibility = Visibility.Visible;
                 }
                 else
                 {
                     Announce.IsEnabled = false;
-                    Announce.Background = (Brush)new BrushConverter().ConvertFromString("#3FA2F6");
+                    //Announce.Background = (Brush)new BrushConverter().ConvertFromString("#3FA2F6");
+                    announceLabelSelect.Visibility = Visibility.Hidden;
                 }
 
                 if (rollCount == 3 && announceClicked)
@@ -485,7 +489,9 @@ namespace Yamb
         private void Announce_Click(object sender, RoutedEventArgs e)
         {
             RollDiceButton.IsEnabled = false;
+            Announce.IsEnabled = false;
             announceClicked = true;
+            announceLabelSelect.Visibility = Visibility.Hidden;
             Announce.Background = Announce.Background = (Brush)new BrushConverter().ConvertFromString("#3FA2F6");
             announceLabelChose.Visibility = Visibility.Hidden;
             isEverythingExceptCallBool = false;
@@ -523,15 +529,6 @@ namespace Yamb
             }
             
         }
-
-
-
-
-
-
-
-
-
 
 
         #region FirstColumn
@@ -1363,17 +1360,12 @@ namespace Yamb
         }
         #endregion
 
-
-
         #region FourthColumn
         private void FourthColumnClick(object sender, EventArgs e)
         {
             TextBlock clickedTextBlock = sender as TextBlock;
 
-            if (announceClicked)
-            {
-
-                if (rollCount == 1)
+                if (rollCount == 1 && announceClicked && !isNumberSelected)
                 {
 
                     clickedFourthTextBlockName = clickedTextBlock.Name;
@@ -1398,11 +1390,11 @@ namespace Yamb
                         }
 
                     }
-
+                isNumberSelected = true;
                     return;
                 }
 
-                if (rollCount == 2 && (clickedFourthTextBlockName == "Rowwww1" || clickedFourthTextBlockName == "Rowwww2"
+                if (announceClicked && (clickedFourthTextBlockName == "Rowwww1" || clickedFourthTextBlockName == "Rowwww2"
                     || clickedFourthTextBlockName == "Rowwww3" || clickedFourthTextBlockName == "Rowwww4" || clickedFourthTextBlockName == "Rowwww5" || clickedFourthTextBlockName == "Rowwww6"))
                 {
                     int textBlockTemp = 0;
@@ -1454,7 +1446,7 @@ namespace Yamb
                     rollCount = 0;
                 }
 
-                if (rollCount == 2 && clickedFourthTextBlockName == "Rowwww8") //Maximum
+                if (announceClicked && clickedFourthTextBlockName == "Rowwww8") //Maximum
                 {
                     int maximum = 0;
                     List<int> numbers = new List<int>();
@@ -1472,7 +1464,7 @@ namespace Yamb
                     ResetDices();
                 }
 
-                if (rollCount == 2 && clickedFourthTextBlockName == "Rowwww9")//MINIMUM
+                if (announceClicked && clickedFourthTextBlockName == "Rowwww9")//MINIMUM
                 {
                     List<int> numbers = new List<int>();
                     for (int i = 0; i < 6; i++)
@@ -1502,7 +1494,7 @@ namespace Yamb
                     }
                 }
 
-                if (rollCount == 2 && clickedFourthTextBlockName == "Rowwww11") //KENTA
+                if (announceClicked && clickedFourthTextBlockName == "Rowwww11") //KENTA
                 {
                     if (scoreDictionary[2] > 0 && scoreDictionary[3] > 0 && scoreDictionary[4] > 0 &&
                         scoreDictionary[5] > 0 && scoreDictionary[6] > 0)
@@ -1522,7 +1514,7 @@ namespace Yamb
                     rollCount = 0;
                 }
 
-                if (rollCount == 2 && clickedFourthTextBlockName == "Rowwww12") //TRILING
+                if (announceClicked && clickedFourthTextBlockName == "Rowwww12") //TRILING
                 {
                     for (int i = 6; i > 0; i--)
                     {
@@ -1543,7 +1535,7 @@ namespace Yamb
                     Row12.IsEnabled = false;
                     rollCount = 0;
                 }
-                if (rollCount == 2 && clickedFourthTextBlockName == "Rowwww13") //FUL
+                if (announceClicked && clickedFourthTextBlockName == "Rowwww13") //FUL
                 {
                     for (int i = 6; i > 0; i--)
                     {
@@ -1580,7 +1572,7 @@ namespace Yamb
                     rollCount = 0;
                 }
 
-                if (rollCount == 2 && clickedFourthTextBlockName == "Rowwww14") //Poker
+                if (announceClicked && clickedFourthTextBlockName == "Rowwww14") //Poker
                 {
                     for (int i = 6; i > 0; i--)
                     {
@@ -1602,7 +1594,7 @@ namespace Yamb
                     rollCount = 0;
                 }
 
-                if (rollCount == 2 && clickedFourthTextBlockName == "Rowwww15") //JAMB
+                if (announceClicked && clickedFourthTextBlockName == "Rowwww15") //JAMB
                 {
                     for (int i = 6; i > 0; i--)
                     {
@@ -1669,9 +1661,9 @@ namespace Yamb
 
                 string textBlockNumberr = new string(clickedFourthTextBlockName.Where(char.IsDigit).ToArray());
                 string borderNamee = "Call" + textBlockNumberr;
-
-                // Use FindName to retrieve the Border element by its name
-                Border borderr = (Border)this.FindName(borderNamee);
+            isNumberSelected = false;
+            // Use FindName to retrieve the Border element by its name
+            Border borderr = (Border)this.FindName(borderNamee);
                 borderr.Background = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#B6DAF8"));
                 ResetDices();
 
@@ -1679,9 +1671,10 @@ namespace Yamb
                 {
                     OnGameEnd(int.Parse(Sum1.Text) + int.Parse(Sum2.Text) + int.Parse(Sum3.Text));
                 }
-            }
+            
         }
         #endregion
+
         private void ResetDices()
         {
             //RESET EVERYTHING
@@ -1727,7 +1720,94 @@ namespace Yamb
         private void RestartGame()
         {
             
-            // Reset game variables, UI, etc.
+         ResetDices();
+         firstColumnCounter = 1;
+         secondColumnCounter = 15;
+         announceClicked = false;
+         clickedFourthTextBlockName = "";
+         isEverythingExceptCallBool = false;
+
+            for (int i = 1; i < 17; i++)
+            {
+                string row = "Row" + i;
+                TextBlock TextBlock1 = (TextBlock)this.FindName(row);
+                if (row == "Row1")
+                {
+                    TextBlock1.IsEnabled = true;
+                    TextBlock1.Text = "";
+                }
+                else if(row == "Row7" || row == "Row10" || row == "Row16")
+                {
+                    TextBlock1.IsEnabled = false;
+                    TextBlock1.Text = "";
+                }
+                else
+                {
+                    TextBlock1.IsEnabled = false;
+                    TextBlock1.Text = "";
+                }
+            }
+            for (int i = 1; i < 17; i++)
+            {
+                string row = "Roww" + i;
+                TextBlock TextBlock1 = (TextBlock)this.FindName(row);
+                if (row == "Roww15")
+                {
+                    TextBlock1.IsEnabled = true;
+                    TextBlock1.Text = "";
+                }
+                else if (row == "Roww7" || row == "Roww10" || row == "Roww16")
+                {
+                    TextBlock1.IsEnabled = false;
+                    TextBlock1.Text = "";
+                }
+                else
+                {
+                    TextBlock1.IsEnabled = false;
+                    TextBlock1.Text = "";
+                }
+
+            }
+            for (int i = 1; i < 17; i++)
+            {
+                string row = "Rowww" + i;
+                TextBlock TextBlock1 = (TextBlock)this.FindName(row);
+                if (row == "Rowww7" || row == "Rowww10" || row == "Rowww16")
+                {
+                    TextBlock1.IsEnabled = false;
+                    TextBlock1.Text = "";
+                }
+                TextBlock1.IsEnabled = true;
+                TextBlock1.Text = "";
+
+            }
+            for (int i = 1; i < 17; i++)
+            {
+                string row = "Rowwww" + i;
+                TextBlock TextBlock1 = (TextBlock)this.FindName(row);
+                if (row == "Rowwww7")
+                {
+                    TextBlock1.IsEnabled = true;
+                    TextBlock1.Text = "";
+                }
+                else if (row == "Rowwww7" || row == "Rowwww10" || row == "Rowwww16")
+                {
+                    TextBlock1.IsEnabled = false;
+                    TextBlock1.Text = "";
+                }
+                else
+                {
+                    TextBlock1.IsEnabled = true;
+                    TextBlock1.Text = "";
+                }
+
+            }
+            Sum1.Text = "";
+            Sum2.Text = "";
+            Sum3.Text = "";
+
+
+
         }
 
     }

@@ -346,11 +346,12 @@
 
             <Label x:Name="announceLabel" Content="Please select a field!" HorizontalAlignment="Center" VerticalAlignment="Bottom" Margin="0 0 0 80" FontFamily="Segoe UI" FontSize="20" FontWeight="SemiBold" Visibility="Hidden"/>
             <Label x:Name="announceLabelChose" Content="Please call a number!" HorizontalAlignment="Center" VerticalAlignment="Bottom" Margin="0 0 0 80" FontFamily="Segoe UI" FontSize="20" FontWeight="SemiBold" Visibility="Hidden"/>
+            <Label x:Name="announceLabelSelect" Content="You can now call a number!" HorizontalAlignment="Center" VerticalAlignment="Bottom" Margin="0 0 0 80" FontFamily="Segoe UI" FontSize="20" FontWeight="SemiBold" Visibility="Hidden"/>
             <Button x:Name="Announce" Height="70" Width="300" VerticalAlignment="Bottom" Content="CALL OUT" IsEnabled="False" Click="Announce_Click" Style="{StaticResource CoolButtonStyle}"/>
         </Grid>
 
 
 
-        <Button x:Name="RollDiceButton" Grid.Row="2" Grid.ColumnSpan="2" Width="400" Height="90" Content="ROLL DICE" Click="RollDice_Click" Style="{StaticResource CoolButtonStyle}" />
+        <Button x:Name="RollDiceButton" Grid.Row="2" Grid.ColumnSpan="2" Width="400" Height="90" Content="ROLL DICE" Click="RollDice_Click" Style="{StaticResource CoolButtonStyle}"/>
     </Grid>
 </Window>

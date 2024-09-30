@@ -5,13 +5,65 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Yamb"
         mc:Ignorable="d"
-        Title="EndPopUp" Height="400" Width="400" Loaded="Window_Loaded">
-    <Grid Background="LightGray" Margin="10" Width="350" Height="150">
-        <Border CornerRadius="10" Background="White" BorderBrush="Black" BorderThickness="2">
-            <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
-                <TextBlock Name="ScoreText" FontSize="20" HorizontalAlignment="Center" />
-                <Button Name="RestartButton" Content="Restart" Width="100" Height="30" Click="RestartButton_Click"/>
-            </StackPanel>
-        </Border>
+        Background="#E2F1FC"
+        Title="Yahtzee" Height="250" Width="400" Loaded="Window_Loaded"
+        Icon="Images/logo.png" ResizeMode="NoResize">
+    <Window.Resources>
+        <!-- Reusable Button Style -->
+        <Style TargetType="Button" x:Key="CoolButtonStyle">
+            <Setter Property="Background" Value="#B6DAF8"/>
+            <Setter Property="Foreground" Value="Black"/>
+            <Setter Property="FontWeight" Value="SemiBold"/>
+            <Setter Property="FontSize" Value="16"/>
+            <Setter Property="BorderThickness" Value="0"/>
+            <Setter Property="Cursor" Value="Hand"/>
+            <Setter Property="Width" Value="150"/>
+            <Setter Property="Height" Value="200"/>
+            <Setter Property="HorizontalAlignment" Value="Center"/>
+            <Setter Property="VerticalAlignment" Value="Center"/>
+            <Setter Property ="FontFamily" Value="Segoe UI"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Border Background="{TemplateBinding Background}" 
+                             CornerRadius="10">
+                            <ContentPresenter HorizontalAlignment="Center"
+                                           VerticalAlignment="Center"/>
+                        </Border>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+
+            <!-- Animation on Mouse Over -->
+            <Style.Triggers>
+                <Trigger Property="IsMouseOver" Value="True">
+                    <Trigger.EnterActions>
+                        <BeginStoryboard>
+                            <Storyboard>
+                                <ColorAnimation Storyboard.TargetProperty="(Button.Background).(SolidColorBrush.Color)"
+                                             To="#A2CFF2"
+                                             Duration="0:0:0.3"/>
+                            </Storyboard>
+                        </BeginStoryboard>
+                    </Trigger.EnterActions>
+                    <Trigger.ExitActions>
+                        <BeginStoryboard>
+                            <Storyboard>
+                                <ColorAnimation Storyboard.TargetProperty="(Button.Background).(SolidColorBrush.Color)"
+                                             To="#B6DAF8"
+                                             Duration="0:0:0.3"/>
+                            </Storyboard>
+                        </BeginStoryboard>
+                    </Trigger.ExitActions>
+                </Trigger>
+            </Style.Triggers>
+        </Style>
+    </Window.Resources>
+
+
+    <Grid>
+        <TextBlock Name="ScoreText" FontSize="27" HorizontalAlignment="Center" Width="200" Height="39" VerticalAlignment="Top" Margin="20,50,0,0" FontWeight="Bold"/>
+        <Button Name="RestartButton" Content="Restart" Width="264" Height="52" Click="RestartButton_Click" Style="{StaticResource CoolButtonStyle}" Margin="0,120,0,0" VerticalAlignment="Top"/>
     </Grid>
+
 </Window>
