@@ -22,9 +22,6 @@ namespace Yamb
     /// Interaction logic for MainWindow.xaml
     /// </summary>
     /// 
-    //TODO : Make the logic for the 1-6 dices, then another function for the MAX and MIN, then another function for the last part of the game SEPERATELY.
-    //TODO : Make the logic of the order in which the result will be stored. 
-           // Add names to every column and row, and columns will have different ways for the storage 
     public partial class MainWindow : Window
     {
         private Random random = new Random();

@@ -5,6 +5,11 @@ VisualStudioVersion = 17.9.34902.65
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Yamb", "Yamb\Yamb.csproj", "{15A424B9-9F9A-41D1-AC10-2AB6E4CE1807}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{30199234-3642-44FB-8E9C-5FC8178856FC}"
+	ProjectSection(SolutionItems) = preProject
+		..\..\Downloads\logo.ico = ..\..\Downloads\logo.ico
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU

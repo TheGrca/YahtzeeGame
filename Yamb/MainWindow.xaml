@@ -8,7 +8,8 @@
         mc:Ignorable="d"
         Background="#E2F1FC"
         Title="Yahtzee" Height="1000" Width="900"
-         Icon="Images/logo.png" ResizeMode="NoResize">
+         Icon="Images/logo.png" ResizeMode="NoResize"
+        WindowStartupLocation="CenterScreen">
 
     <Window.Resources>
         <!-- Reusable Button Style -->

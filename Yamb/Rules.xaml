@@ -7,7 +7,8 @@
         mc:Ignorable="d"
         Background="#E2F1FC"
         Title="Yahtzee Rules" Height="800" Width="600"
-        Icon="Images/logo.png" ResizeMode="NoResize" Loaded="Window_Loaded">
+        Icon="Images/logo.png" ResizeMode="NoResize" Loaded="Window_Loaded"
+        WindowStartupLocation="CenterScreen">
     <Window.Resources>
         <!-- Reusable Button Style -->
         <Style TargetType="Button" x:Key="CoolButtonStyle">
@@ -61,7 +62,7 @@
     </Window.Resources>
     <Grid>
         <TextBlock Text="RULES" HorizontalAlignment="Center" VerticalAlignment="Top" FontSize="40" FontFamily="Segoe UI" FontWeight="SemiBold" Margin="0 10 0 0"/>
-        <TextBlock FontSize="15" HorizontalAlignment="Left" Width="250" Height="42" VerticalAlignment="Top" Margin="62,87,0,0" FontWeight="SemiBold" Text="Description of the rows in the table:"/>
+        <TextBlock FontSize="18" HorizontalAlignment="Left" Width="306" Height="42" VerticalAlignment="Top" Margin="62,87,0,0" FontWeight="SemiBold" Text="Description of the rows in the table:"/>
         <TextBlock FontSize="14" HorizontalAlignment="Left" Width="445" Height="42" VerticalAlignment="Top" Margin="62,116,0,0" Text="1. Ones to sixes - the sum of five dice with the selected value"/>
         <TextBlock FontSize="14" HorizontalAlignment="Left" Width="372" Height="41" VerticalAlignment="Top" Margin="62,144,0,0" Text="2. Maximum - a maximum sum of five dice:"/>
         <TextBlock FontSize="14" HorizontalAlignment="Left" Width="348" Height="43" VerticalAlignment="Top" Margin="62,167,0,0" Text="3. Minimum - a minimum sum of five dice"/>
@@ -91,13 +92,13 @@
                 </TransformGroup>
             </Image.RenderTransform>
         </Image>
-        <TextBlock FontSize="15" HorizontalAlignment="Left" Width="316" Height="40" VerticalAlignment="Top" Margin="62,424,0,0" FontWeight="SemiBold" Text="Description of the columns in the table:"/>
+        <TextBlock FontSize="18" HorizontalAlignment="Left" Width="414" Height="40" VerticalAlignment="Top" Margin="62,424,0,0" FontWeight="SemiBold" Text="Description of the columns in the table:"/>
         <TextBlock FontSize="15" HorizontalAlignment="Left" Width="326" Height="39" VerticalAlignment="Top" Margin="122,452,0,0" Text="- Only fills down"/>
         <TextBlock FontSize="14" HorizontalAlignment="Left" Width="360" Height="38" VerticalAlignment="Top" Margin="122,491,0,0" Text="- Only fills up"/>
         <TextBlock FontSize="14" HorizontalAlignment="Left" Width="336" Height="40" VerticalAlignment="Top" Margin="96,524,0,0" Text="Free - Filled in by choice (Free)"/>
         <TextBlock FontSize="14" HorizontalAlignment="Left" Width="482" Height="39" VerticalAlignment="Top" Margin="96,549,0,0" Text="Call - Must be announced after the first throw (Announcement)"/>
 
-        <TextBlock FontSize="15" HorizontalAlignment="Left" Width="482" Height="110" VerticalAlignment="Top" Margin="62,588,0,0" FontWeight="SemiBold"><Run Text="After the last throw, the result is automatically calculated according to"/><LineBreak/><Run Text="the formula for the columns:"/></TextBlock>
+        <TextBlock FontSize="18" HorizontalAlignment="Left" Width="540" Height="110" VerticalAlignment="Top" Margin="62,588,0,0" FontWeight="SemiBold"><Run Text="After the last throw, the result is automatically "/><LineBreak/><Run Text="calculated according to the formula for the columns:"/></TextBlock>
         <TextBlock FontSize="14" HorizontalAlignment="Left" Width="482" Height="38" VerticalAlignment="Top" Margin="62,640,0,0"><Run Text="Rk=1+2+3+4+5+6+A+(Maximum-Minimum)*Ones+S+T+F+P+Y, "/><LineBreak/><Run Text="where A=30 only if 1+2+3+4+5+6&gt;=60 else A=0"/></TextBlock>
         <Button Name="CloseButton" Content="Close" Width="264" Height="52" Click="CloseButton_Click" Style="{StaticResource CoolButtonStyle}" VerticalAlignment="Bottom" Margin="0 0 0 10"/>
     </Grid>
